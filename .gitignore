@@ -9,3 +9,7 @@ pom.xml.asc
 /.nrepl-port
 .DS_Store
 *.iml
+.classpath
+.project
+.settings/*
+
