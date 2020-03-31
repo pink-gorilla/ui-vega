@@ -6,7 +6,7 @@
    [pinkgorilla.ui.gorilla-plot.multi :as m]))
 
 (defn -vega! [spec]
-  (with-meta [:vega spec] {:R true})) ; creates ^:R [:vega spec]
+  (with-meta [:p/vega spec] {:R true})) ; creates ^:R [:vega spec]
 
 (defn -wrap-vega [f]
   (fn [& spec]
