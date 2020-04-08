@@ -38,7 +38,22 @@
                        (fn [x y] {:x x :y y})
                        time-sanitized series))}))
 
-(defn build-series
+(defn build-series-rect
+  "builds a vega lite plot-spec for a single series"
+  [width time last? m]
+  (let [{:keys [data height]} m]
+    (merge
+     (when height {:height height})
+     (when width {:width width})
+     {:mark {:type "rect"}
+      :data {:values data}
+      :encoding {:x {:field "start"
+                     :type "temporal"}
+                 :x2 {:field "end"}
+                 :color {:field "color"} ; {:value color}
+                 }})))
+
+(defn build-series-all
   "builds a vega lite plot-spec for a single series"
   [width time last? m]
   ;(println "build-series " m)
@@ -72,6 +87,14 @@
                                 :zero zero?}})
                      {:field "y"
                       :type "quantitative"})}})))
+
+(defn build-series
+  [width time last? m]
+  (let [type (:type m)]
+    (case type
+      :rect (build-series-rect width time last? m)
+      "rect" (build-series-rect width time last? m)
+      (build-series-all width time last? m))))
 
 (defn- build-plot
   "builds a plot that can contain one or more series"
