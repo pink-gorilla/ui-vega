@@ -43,14 +43,15 @@
   [width time last? m]
   ;(println "build-series " m)
   (let [;name (uuid)
-        {:keys [data color title orient height #_width type scale]
+        {:keys [data color title orient height #_width type scale zero?]
          :or {color "#85C5A6"
               title nil
               orient "left"
               height nil
               ;width nil
               type "point"
-              scale nil}} m]
+              scale "linear"
+              zero? true}} m]
     (merge
      (when height {:height height})
      (when width {:width width})
@@ -67,7 +68,8 @@
                      (when title
                        {:axis {:title title :titleColor "black" :orient orient}})
                      (when scale
-                       {:scale {:type scale}})
+                       {:scale {:type scale
+                                :zero zero?}})
                      {:field "y"
                       :type "quantitative"})}})))
 
