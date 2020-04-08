@@ -98,22 +98,30 @@
      }))
 
 (defn multi-plot
-  "plots one or more plots (aligned vertically)
-   each plot can contain one or more series
+  "plots one or more timeseries plots (stacked vertically)
+   input: [options vector-of-plots]
 
-   example
-     - first plot is single line, therefore plot params have to be set {}
-    (as we do below), or first plot is wrapped with []
+   options
+   - is optional
+   - if specified, a map with optional keys:
+     :width (pixels)
+     :time (time data as unix-long)
 
-   series-plot map
+   a plot contains either 
+   - one series (map)
+   - more series (vector of maps)
+
+   a series is a map
+   - mandatory keys:
       :data - vector of (length n)
-      all other parameter r¡are optional:
+   - optional keys:
       :color
       :orient   :left :right
-      :title of the axis    
+      :title   (of the axis)    
       :height
       :width
 
+   example:
    (def a [1 2 4 3 2])
    (def b [-1 1 -2 3 0])
    (def c [6 5 1 7 5])
@@ -121,7 +129,11 @@
    (multi-plot {:width 100} 
       {:data c :orient :left :title \"C\" :color \"blue\" :height 20 } 
       [{:data a :orient :right :title \"A\" :color \"red\" :height 50} 
-      {:data b :orient :left :title \"B\" :height 50}]))  "
+      {:data b :orient :left :title \"B\" :height 50}])) 
+  
+   note that the first plot is single series (therefore a map), 
+   the second plot has 2 series (vector of maps)
+ "
   [& plots]
   (let [; optional parameter plot settings as map in first parameter
         [args plots] (if (map? (first plots))
