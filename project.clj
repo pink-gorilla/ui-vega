@@ -28,7 +28,9 @@
   ;; TODO: prep tasks breaks alias???
   ;; :prep-tasks ["build-shadow-ci"]
 
-  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]}
+  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
+            "lint"                             ^{:doc "Lint for dummies"}
+            ["clj-kondo" "--lint" "src"]}
 
   :release-tasks [["vcs" "assert-committed"]
                   ["bump-version" "release"]

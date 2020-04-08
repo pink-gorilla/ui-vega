@@ -40,7 +40,7 @@
 
 (defn build-series-rect
   "builds a vega lite plot-spec for a single series"
-  [width time last? m]
+  [width _ #_time _ #_last? m]
   (let [{:keys [data height]} m]
     (merge
      (when height {:height height})
