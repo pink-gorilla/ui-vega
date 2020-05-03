@@ -6,6 +6,16 @@
 ;; Thanks: https://gist.github.com/gorsuch/1418850
 
 
+(defn merge-with-meta [& data]
+  (let [metas (map meta data)
+        merged-meta (apply merge metas)]
+    (with-meta (apply merge data) merged-meta)))
+
+(comment
+  (meta (merge-with-meta
+         ^:R {:a 1 :b 2}
+         ^:r {:c 3 :d 4})))
+
 (defn add-indices [d] (map vector (range (count d)) d))
 
 (defn list-plot
@@ -25,7 +35,7 @@
         plot-data (if (sequential? (first data))
                     data
                     (add-indices data))]
-    (merge
+    (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name plot-data)
      (if joined
@@ -39,7 +49,7 @@
         params (into [] (concat [data :series-name series-name] keys))
         plot (apply list-plot params)
         plot-range [:all :all]]
-    (merge
+    (merge-with-meta
      plot
      (vega/timeseries-list-plot-scales series-name plot-range))))
 
@@ -61,7 +71,7 @@
                                plot-range   [:all :all]
                                opacity      1}}]
   (let [series-name (uuid)]
-    (merge
+    (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name (map vector categories values))
      (vega/bar-chart-marks series-name (or colour color) opacity)
@@ -106,7 +116,7 @@
         ;; bookend the y-data with zeroes.
         y-data (concat [0] cat-data [0])
         plot-data (map vector x-data y-data)]
-    (merge
+    (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name plot-data)
      (vega/histogram-marks series-name (or colour color) opacity fill-opacity)
@@ -119,6 +129,7 @@
         {:keys [width height padding scales axes]} first-plot
         data (apply concat (map :data plots))
         marks (apply concat (map :marks plots))]
+    ^{:p/render-as :p/vega}
     {; take plot parameter from first plot
      :width   width
      :height  height

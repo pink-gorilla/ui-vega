@@ -8,6 +8,7 @@
 
 (defn container
   [plot-size aspect-ratio]
+  ^{:p/render-as :p/vega}
   {:$schema "https://vega.github.io/schema/vega/v5.json"
    :width   plot-size
    :height  (float (/ plot-size aspect-ratio))
