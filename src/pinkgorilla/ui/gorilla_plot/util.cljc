@@ -1,6 +1,10 @@
 (ns pinkgorilla.ui.gorilla-plot.util)
 
-(defn uuid [] (str (java.util.UUID/randomUUID)))
+#?(:clj
+   (defn uuid [] (str (java.util.UUID/randomUUID))))
+
+#?(:cljs
+   (defn uuid [] (str (cljs.core/random-uuid))))
 
 (defn count-in-range
   [data min max]

@@ -3,11 +3,10 @@
      -multiple plots in one chart
      -multiple plots horizontal"
   (:require
-   [clj-time.core :as t]
-   [clj-time.coerce :as tc]
-   ;[pinkgorilla.ui.gorilla-plot.vega :refer [container]]
-   ;[pinkgorilla.ui.gorilla-plot.util :as util :refer [uuid]]
-   ))
+   #?(:clj  [clj-time.core :as t]
+      :cljs [cljs-time.core :as t])
+   #?(:clj  [clj-time.coerce :as tc]
+      :cljs [cljs-time.coerce :as tc])))
 
 (defn container-lite
   "vega-lite container (version 4)"

@@ -1,0 +1,4 @@
+{:lein {:profile "+ci"}
+ :nrepl  {:port 8703}
+ :builds {:ci   {:target    :karma
+                 :output-to "target/ci.js"}}}

@@ -1,0 +1,29 @@
+{
+  "name": "gorilla-plot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "karma.conf.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "cross-env NODE_ENV=development karma start --single-run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pink-gorilla/gorilla-plot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pink-gorilla/gorilla-plot/issues"
+  },
+  "homepage": "https://github.com/pink-gorilla/gorilla-plot#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-cljs-test": "^0.1.0"
+  }
+}

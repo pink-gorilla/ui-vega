@@ -1,18 +1,40 @@
 (defproject org.pinkgorilla/gorilla-plot "0.9.9-SNAPSHOT"
-  :description "A simple data-driven plotting library for Gorilla REPL."
+  :description "A simple data-driven plotting library using Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
                                      :sign-releases false}]]
+  :release-tasks [["vcs" "assert-committed"]
+                  ["bump-version" "release"]
+                  ["vcs" "commit" "Release %s"]
+                  ["vcs" "tag" "v" "--no-sign"]
+                  ["deploy"]
+                  ["bump-version"]
+                  ["vcs" "commit" "Begin %s"]
+                  ["vcs" "push"]]
+  
+    ;; TODO: prep tasks breaks alias???
+  ;; :prep-tasks ["build-shadow-ci"]
+
   :dependencies   [[org.clojure/clojure "1.10.1"]
                    [clj-time "0.14.3"] ;time axis creation 
-                   ;[org.pinkgorilla/gorilla-renderable "3.0.0"] ;PinkGorilla Renderable (AND currently VEGA)
-                   ]
-  :profiles {:dev {:dependencies [[clj-kondo "2019.11.23"]]
+                   [com.andrewmcveigh/cljs-time "0.5.2"]]
+
+  :pinkgorilla {:runtime-config "./notebooks/config.edn"}
+  
+  :profiles {:ci  {:target    :karma
+                   :output-to "target/ci.js"}
+
+             :dev {:dependencies [[thheller/shadow-cljs "2.8.80"]
+                                  [thheller/shadow-cljsjs "0.0.21"]
+                                  [clj-kondo "2019.11.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
-                                  [lein-cloverage "1.1.2"]]
+                                  [lein-cloverage "1.1.2"]
+                                  [lein-shell "0.5.0"]
+                                  [lein-ancient "0.6.15"]
+                                  [org.pinkgorilla/lein-pinkgorilla "0.0.13"]]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
                    :cloverage    {:codecov? true
                                   ;; In case we want to exclude stuff
@@ -25,18 +47,19 @@
                                             merge-meta          [[:inner 0]]
                                             try-if-let          [[:block 1]]}}}}
 
-  ;; TODO: prep tasks breaks alias???
-  ;; :prep-tasks ["build-shadow-ci"]
 
-  :aliases {"bump-version" ["change" "version" "leiningen.release/bump-version"]
+
+  :aliases {"bump-version"
+            ["change" "version" "leiningen.release/bump-version"]
+
             "lint"                             ^{:doc "Lint for dummies"}
-            ["clj-kondo" "--lint" "src"]}
+            ["clj-kondo" "--lint" "src"]
 
-  :release-tasks [["vcs" "assert-committed"]
-                  ["bump-version" "release"]
-                  ["vcs" "commit" "Release %s"]
-                  ["vcs" "tag" "v" "--no-sign"]
-                  ["deploy"]
-                  ["bump-version"]
-                  ["vcs" "commit" "Begin %s"]
-                  ["vcs" "push"]])
+            "build-shadow-ci" ^{:doc "Build shadow-cljs ci"}
+            ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":ci"]
+
+            "test-run" ^{:doc "Test compiled JavaScript."}
+            ["shell" "./node_modules/karma/bin/karma" "start" "--single-run"]
+
+            "test-js" ^{:doc "Compile & Run JavaScript."}
+            ["do" "build-shadow-ci" ["test-run"]]})
