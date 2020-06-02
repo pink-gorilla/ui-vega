@@ -18,7 +18,6 @@ lein pinkgorilla
 This will run pinkgorilla notebook as a library, with gorilla-plot demo notebooks 
 loaded into the explorer.
 
-```
 
 ## Implementation
 - Legacy gorilla-plot was originally written by Jony Hudson for Gorilla repl.

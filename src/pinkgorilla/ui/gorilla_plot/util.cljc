@@ -1,10 +1,14 @@
-(ns pinkgorilla.ui.gorilla-plot.util)
+(ns pinkgorilla.ui.gorilla-plot.util
+  #?(:clj
+     (:require
+      [clojure.java.io] ; this brings java.util to scope; TODO: check if this can be done in simpler way
+      )))
 
 #?(:clj
-   (defn uuid [] (str (java.util.UUID/randomUUID))))
+   (defn gen-uuid [] (str (java.util.UUID/randomUUID))))
 
 #?(:cljs
-   (defn uuid [] (str (cljs.core/random-uuid))))
+   (defn gen-uuid [] (str (cljs.core/random-uuid))))
 
 (defn count-in-range
   [data min max]

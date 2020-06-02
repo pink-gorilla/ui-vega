@@ -2,6 +2,8 @@
   :description "A simple data-driven plotting library using Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
+  :min-lein-version "2.9.3"
+  :min-java-version "1.11"
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
@@ -14,16 +16,19 @@
                   ["bump-version"]
                   ["vcs" "commit" "Begin %s"]
                   ["vcs" "push"]]
-  
+
     ;; TODO: prep tasks breaks alias???
   ;; :prep-tasks ["build-shadow-ci"]
+
+  :source-paths ["src"]
+  :test-paths ["test"]
 
   :dependencies   [[org.clojure/clojure "1.10.1"]
                    [clj-time "0.14.3"] ;time axis creation 
                    [com.andrewmcveigh/cljs-time "0.5.2"]]
 
   :pinkgorilla {:runtime-config "./notebooks/config.edn"}
-  
+
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
 
@@ -34,6 +39,7 @@
                                   [lein-cloverage "1.1.2"]
                                   [lein-shell "0.5.0"]
                                   [lein-ancient "0.6.15"]
+                                  [min-java-version "0.1.0"]
                                   [org.pinkgorilla/lein-pinkgorilla "0.0.13"]]
                    :aliases      {"clj-kondo" ["run" "-m" "clj-kondo.main"]}
                    :cloverage    {:codecov? true

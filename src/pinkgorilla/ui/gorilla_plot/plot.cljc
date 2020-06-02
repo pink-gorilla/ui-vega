@@ -1,6 +1,7 @@
 (ns pinkgorilla.ui.gorilla-plot.plot
-  (:require [pinkgorilla.ui.gorilla-plot.vega :as vega]
-            [pinkgorilla.ui.gorilla-plot.util :as util :refer [uuid]]))
+  (:require
+   [pinkgorilla.ui.gorilla-plot.vega :as vega]
+   [pinkgorilla.ui.gorilla-plot.util :as util :refer [gen-uuid]]))
 
 ;; Series' are given random names so that plots can be composed
 ;; Thanks: https://gist.github.com/gorsuch/1418850
@@ -28,10 +29,10 @@
                   plot-range   [:all :all]
                   symbol-size  70
                   opacity      1
-                  series-name (uuid)
+                  series-name (gen-uuid)
                   ;;symbol       "circle"
                   }}]
-  (let [;series-name (uuid)
+  (let [;series-name (gen-uuid)
         plot-data (if (sequential? (first data))
                     data
                     (add-indices data))]
@@ -45,7 +46,7 @@
      (vega/default-plot-axes x-title y-title))))
 
 (defn timeseries-plot [data & keys]
-  (let [series-name (uuid)
+  (let [series-name (gen-uuid)
         params (into [] (concat [data :series-name series-name] keys))
         plot (apply list-plot params)
         plot-range [:all :all]]
@@ -70,7 +71,7 @@
                                aspect-ratio 1.618
                                plot-range   [:all :all]
                                opacity      1}}]
-  (let [series-name (uuid)]
+  (let [series-name (gen-uuid)]
     (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name (map vector categories values))
@@ -108,7 +109,7 @@
                :probability-density (* (count data) bin-size)
                :count 1)
         cat-data (map #(/ % (double norm)) cat-counts)
-        series-name (uuid)
+        series-name (gen-uuid)
         ;; we use a modified line plot to draw the histogram, rather than the more obvious bar-chart (as then the
         ;; scales are easier to work with, especially when adding lines). This requires jumping through some hoops:
         ;; move the x-points to be in the middle of their bins and add two extra
