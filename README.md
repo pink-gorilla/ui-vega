@@ -24,5 +24,9 @@ loaded into the explorer.
 - Gorilla-Plot Legacy uses vega-spec, updated to vega 5 spec.
 - multiplot uses vega-lite spec.
 
+## Performance test
 
+```
+lein perf
+```
 

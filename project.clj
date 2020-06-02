@@ -32,7 +32,8 @@
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
 
-             :perf {:dependencies [[metasoarous/darkstar "0.1.0"]
+             :perf {:source-paths ["dev"]
+                    :dependencies [[metasoarous/darkstar "0.1.0"]
                                    [cheshire "5.10.0"]
                                    [com.taoensso/tufte "2.1.0"]]}
 
@@ -75,4 +76,4 @@
             ["do" "build-shadow-ci" ["test-run"]]
 
             "perf"              ^{:doc "performance tests"}
-            ["with-profile" "perf" "run" "-m" "pinkgorilla.ui.gorilla-plot.performance"]})
+            ["with-profile" "perf" "run" "-m" "perf.core"]})

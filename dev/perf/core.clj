@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.gorilla-plot.performance
+(ns perf.core
   (:require
    [applied-science.darkstar :as darkstar]
    [taoensso.tufte :as tufte :refer (p profile)]
