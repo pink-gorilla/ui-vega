@@ -32,6 +32,10 @@
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
 
+             :perf {:dependencies [[metasoarous/darkstar "0.1.0"]
+                                   [cheshire "5.10.0"]
+                                   [com.taoensso/tufte "2.1.0"]]}
+
              :dev {:dependencies [[thheller/shadow-cljs "2.8.80"]
                                   [thheller/shadow-cljsjs "0.0.21"]
                                   [clj-kondo "2019.11.23"]]
@@ -58,14 +62,17 @@
   :aliases {"bump-version"
             ["change" "version" "leiningen.release/bump-version"]
 
-            "lint"                             ^{:doc "Lint for dummies"}
+            "lint"            ^{:doc "Lint for dummies"}
             ["clj-kondo" "--lint" "src"]
 
             "build-shadow-ci" ^{:doc "Build shadow-cljs ci"}
             ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":ci"]
 
-            "test-run" ^{:doc "Test compiled JavaScript."}
+            "test-run"         ^{:doc "Test compiled JavaScript."}
             ["shell" "./node_modules/karma/bin/karma" "start" "--single-run"]
 
-            "test-js" ^{:doc "Compile & Run JavaScript."}
-            ["do" "build-shadow-ci" ["test-run"]]})
+            "test-js"          ^{:doc "Compile & Run JavaScript."}
+            ["do" "build-shadow-ci" ["test-run"]]
+
+            "perf"              ^{:doc "performance tests"}
+            ["with-profile" "perf" "run" "-m" "pinkgorilla.ui.gorilla-plot.performance"]})
