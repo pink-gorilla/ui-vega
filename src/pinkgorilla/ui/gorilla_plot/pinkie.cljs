@@ -1,7 +1,7 @@
 (ns pinkgorilla.ui.gorilla-plot.pinkie
   (:require
    [pinkgorilla.ui.pinkie :as pinkie :refer [register-tag]]
-   [pinkgorilla.ui.vega :refer [vega vegaa]]
+   [pinkgorilla.ui.vega :refer [vega]]
    [pinkgorilla.ui.gorilla-plot.plot :as plot]
    [pinkgorilla.ui.gorilla-plot.core :refer [compose]]))
 
