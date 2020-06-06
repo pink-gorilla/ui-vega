@@ -23,9 +23,10 @@
   :source-paths ["src"]
   :test-paths ["test"]
 
-  :dependencies   [[org.clojure/clojure "1.10.1"]
-                   [clj-time "0.14.3"] ;time axis creation 
-                   [com.andrewmcveigh/cljs-time "0.5.2"]]
+  :dependencies [[org.clojure/clojure "1.10.1"]
+                 [clj-time "0.14.3"] ;time axis creation 
+                 [com.andrewmcveigh/cljs-time "0.5.2"]
+                 [org.pinkgorilla/gorilla-ui "0.1.61"]]
 
   :pinkgorilla {:runtime-config "./notebooks/config.edn"}
 
