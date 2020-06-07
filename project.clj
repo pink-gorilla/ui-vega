@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-plot "1.2.2-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-plot "1.2.2"
   :description "A simple data-driven plotting library using Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
