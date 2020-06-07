@@ -1,19 +1,19 @@
 (ns pinkgorilla.ui.gorilla-plot.pinkie
   (:require
-   [pinkgorilla.ui.pinkie :as pinkie :refer [register-tag]]
+   [pinkgorilla.ui.pinkie :as pinkie :refer-macros [register-component]]
    [pinkgorilla.ui.vega :refer [vega]]
    [pinkgorilla.ui.gorilla-plot.plot :as plot]
    [pinkgorilla.ui.gorilla-plot.core :refer [compose]]))
 
 ; performance tests
 
-(defn xxx [state]
+(defn ^{:category :demo}  xxx [state]
   [:p/leaflet
    (into [{:type :view :center [-16, 170.5] :zoom 4 :height 600 :width 700}]
          (for [{:keys [lat long]} (:quakes @state)]
            {:type :marker :position [lat long]}))])
 
-(pinkie/register-tag :p/xxx xxx)
+(pinkie/register-component :p/xxx xxx)
 
 ; todo: move gorilla plot
 
@@ -23,13 +23,13 @@
 ; first parameter.
 
 
-(defn listplot
+(defn ^{:category :data} listplot
   ([data]
    (listplot {} data))
   ([options data]
    [vega (apply plot/list-plot data (apply concat options))]))
 
-(defn barchart
+(defn ^{:category :data} barchart
   ([cat val]
    (barchart {} cat val))
   ([options cat val]
@@ -37,13 +37,13 @@
 
 ; histogram not yet working. the gorillaplot implementation uses way too
 ; much Math/xx unctions that are not defined in clojurescript.
-(defn histogram
+(defn ^{:category :data} histogram
   ([data]
    (histogram {} data))
   ([options data]
    [vega (apply plot/histogram data (apply concat options))]))
 
-(defn plot
+(defn ^{:category :data} plot
   ([fun min-max]
    (plot {} fun min-max))
   ([options fun min-max]
@@ -53,10 +53,10 @@
   (.sin js/Math x))
 
 (println "registering vega dsl plots .. ")
-(register-tag :p/listplot listplot)
-(register-tag :p/barchart barchart)
-(register-tag :p/histogram histogram)
-(register-tag :p/plot plot)
-(register-tag :p/composeplot compose) ; compose has problem with recursive pinkie.
+(register-component :p/listplot listplot)
+(register-component :p/barchart barchart)
+(register-component :p/histogram histogram)
+(register-component :p/plot plot)
+(register-component :p/composeplot compose) ; compose has problem with recursive pinkie.
 
 
