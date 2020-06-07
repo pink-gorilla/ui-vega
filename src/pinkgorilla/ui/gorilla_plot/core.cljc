@@ -24,7 +24,7 @@
 (defn -unwrap [renderable]
   (second renderable)) ; [:vega data]
 
-(defn compose
+(defn ^{:category :data} compose
   [& plots]
   (let [plots-unwrapped (into [] (map -unwrap plots))]
     (->> plots-unwrapped
