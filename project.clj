@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-plot "1.2.3"
+(defproject org.pinkgorilla/gorilla-plot "1.2.4-SNAPSHOT"
   :description "A simple data-driven plotting dsl using Vega via Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
