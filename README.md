@@ -20,6 +20,7 @@ loaded into the explorer.
 
 
 ## Implementation
+
 - Legacy gorilla-plot was originally written by Jony Hudson for Gorilla repl.
 - Gorilla-Plot Legacy uses vega-spec, updated to vega 5 spec.
 - multiplot uses vega-lite spec.
