@@ -1,7 +1,7 @@
 (ns pinkgorilla.gorilla-plot.pinkie
   (:require
-   [pinkgorilla.ui.pinkie :as pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.vega :refer [vega]]
+   [pinkie.pinkie :refer-macros [register-component]]
+   [pinkgorilla.ui.data.vega :refer [vega]]
    [pinkgorilla.gorilla-plot.plot :as plot]
    [pinkgorilla.gorilla-plot.core :refer [compose]]))
 
