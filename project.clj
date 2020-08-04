@@ -26,10 +26,21 @@
   :test-paths ["test"]
   :target-path  "target/jar"
 
+  :managed-dependencies [[com.google.javascript/closure-compiler-unshaded "v20200719"]
+                         [com.cognitect/transit-cljs "0.8.264"]
+                         [com.fasterxml.jackson.core/jackson-core "2.11.2"]
+                         [org.apache.httpcomponents/httpcore "4.4.13"]
+                         [org.apache.httpcomponents/httpasyncclient "4.1.4"]
+                         [com.google.code.findbugs/jsr305 "3.0.2"]
+                         [org.ow2.asm/asm "8.0.1"]
+                         [commons-codec "1.14"]
+                         ]
+
+
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [clj-time "0.15.2"] ;time axis creation 
                  [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/gorilla-ui "0.2.28"]]
+                 [org.pinkgorilla/gorilla-ui "0.2.30"]]
 
   :pinkgorilla {:timbre-loglevel :info
                 :backend {:explorer {:exclude #{".svn" ".git"}, :roots {:app "./notebooks"}}}
@@ -44,9 +55,9 @@
                                    [cheshire "5.10.0"]
                                    [com.taoensso/tufte "2.1.0"]]}
 
-             :dev {:dependencies [[org.pinkgorilla/webly "0.0.23"] ; brings shadow
+             :dev {:dependencies [[org.pinkgorilla/webly "0.0.25"] ; brings shadow
                                   [clj-kondo "2020.07.29"]]
-                                  
+
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
                                   [lein-shell "0.5.0"]
