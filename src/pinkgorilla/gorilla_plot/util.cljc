@@ -1,4 +1,4 @@
-(ns pinkgorilla.ui.gorilla-plot.util
+(ns pinkgorilla.gorilla-plot.util
   #?(:clj
      (:require
       [clojure.java.io] ; this brings java.util to scope; TODO: check if this can be done in simpler way

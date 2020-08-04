@@ -1,9 +1,11 @@
 (defproject org.pinkgorilla/gorilla-plot "1.2.3-SNAPSHOT"
-  :description "A simple data-driven plotting library using Gorilla UI."
+  :description "A simple data-driven plotting dsl using Vega via Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
+
   :min-lein-version "2.9.3"
   :min-java-version "1.11"
+
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
@@ -22,13 +24,17 @@
 
   :source-paths ["src"]
   :test-paths ["test"]
+  :target-path  "target/jar"
 
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [clj-time "0.14.3"] ;time axis creation 
+                 [clj-time "0.15.2"] ;time axis creation 
                  [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/gorilla-ui "0.2.2"]]
+                 [org.pinkgorilla/gorilla-ui "0.2.28"]]
 
-  :pinkgorilla {:runtime-config "./notebooks/config.edn"}
+  :pinkgorilla {:timbre-loglevel :info
+                :backend {:explorer {:exclude #{".svn" ".git"}, :roots {:app "./notebooks"}}}
+                :frontend {:explorer {:repositories [{:name "local", :url "/api/explorer", :save true}]}}
+                :title "GorillaPlot notebooks"}
 
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
@@ -38,15 +44,15 @@
                                    [cheshire "5.10.0"]
                                    [com.taoensso/tufte "2.1.0"]]}
 
-             :dev {:dependencies [[thheller/shadow-cljs "2.8.80"]
-                                  [thheller/shadow-cljsjs "0.0.21"]
-                                  [clj-kondo "2019.11.23"]]
+             :dev {:dependencies [[org.pinkgorilla/webly "0.0.23"] ; brings shadow
+                                  [clj-kondo "2020.07.29"]]
+                                  
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
                                   [lein-shell "0.5.0"]
                                   [lein-ancient "0.6.15"]
                                   [min-java-version "0.1.0"]
-                                  [org.pinkgorilla/lein-pinkgorilla "0.0.13"]]
+                                  [org.pinkgorilla/lein-pinkgorilla "0.0.20"]]
                    :aliases      {"clj-kondo"
                                   ["run" "-m" "clj-kondo.main"]
 
@@ -66,7 +72,15 @@
                                   ["do" "build-shadow-ci" ["test-run"]]
 
                                   "perf"              ^{:doc "performance tests"}
-                                  ["with-profile" "perf" "run" "-m" "perf.core"]}
+                                  ["with-profile" "perf" "run" "-m" "perf.core"]
+
+                                   ;; APP
+
+                                  "build-dev"  ^{:doc "compiles bundle-dev"}
+                                  ["with-profile" "+dev" "run" "-m" "webly.build-cli" "compile" "+dev" "goldly.app/handler" "demo.app"]
+
+                                  "build-prod"  ^{:doc "compiles bundle-prod"}
+                                  ["with-profile" "+dev" "run" "-m" "webly.build-cli" "release" "+dev" "goldly.app/handler" "demo.app"]}
                    :cloverage    {:codecov? true
                                   ;; In case we want to exclude stuff
                                   ;; :ns-exclude-regex [#".*util.instrument"]

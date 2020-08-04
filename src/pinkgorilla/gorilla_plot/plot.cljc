@@ -1,7 +1,7 @@
-(ns pinkgorilla.ui.gorilla-plot.plot
+(ns pinkgorilla.gorilla-plot.plot
   (:require
-   [pinkgorilla.ui.gorilla-plot.vega :as vega]
-   [pinkgorilla.ui.gorilla-plot.util :as util :refer [gen-uuid]]))
+   [pinkgorilla.gorilla-plot.vega :as vega]
+   [pinkgorilla.gorilla-plot.util :as util :refer [gen-uuid]]))
 
 ;; Series' are given random names so that plots can be composed
 ;; Thanks: https://gist.github.com/gorsuch/1418850
