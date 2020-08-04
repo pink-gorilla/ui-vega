@@ -192,7 +192,7 @@
   (build-plots 500 {:data a :orient "right" :title "A"}
                {:data b :orient "left" :title "B"})
 
-  (clojure.repl/doc multi-plot)
+  ;(clojure.repl/doc multi-plot)
 
   (multi-plot  [{:data a :orient "right" :title "A"}
                 {:data b :orient "left" :title "B"}])
