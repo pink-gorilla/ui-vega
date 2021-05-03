@@ -9,15 +9,6 @@ and is a more condensed specification with less features.
 - gorilla-plots provides a few functions to quickly generate vega specs, and
   therefore vega plots.
 
-## Demo
-
-```
-lein notebook
-```
-
-This will run pinkgorilla notebook as a library, with gorilla-plot demo notebooks 
-loaded into the explorer.
-
 
 ## Implementation
 
