@@ -4,4 +4,4 @@
    [goldly.sci.bindings :refer [add-cljs-namespace add-cljs-bindings generate-bindings]]))
 
 ; cljs ui
-(add-cljs-namespace [pinkgorilla.gorilla-plot.pinkie]) 
+(add-cljs-namespace [pinkgorilla.gorilla-plot.pinkie])
