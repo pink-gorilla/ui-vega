@@ -48,7 +48,7 @@
                                   ["change" "version" "leiningen.release/bump-version"]
 
                                   "lint"            ^{:doc "Lint for dummies"}
-                                  ["clj-kondo" "--lint" "src"]
+                                  ["clj-kondo" "--config" "clj-kondo.edn" "--lint" "src"]
 
                                   "build-shadow-ci" ^{:doc "Build shadow-cljs ci"}
                                   ["run" "-m" "shadow.cljs.devtools.cli" "compile" ":ci"]
