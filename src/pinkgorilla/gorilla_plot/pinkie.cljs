@@ -36,10 +36,6 @@
   ([options fun min-max]
    [vega (apply plot/plot fun min-max (apply concat options))]))
 
-(defn sin [x]
-  (.sin js/Math x))
-
-(println "registering vega dsl plots .. ")
 (register-component :p/listplot listplot)
 (register-component :p/barchart barchart)
 (register-component :p/histogram histogram)
