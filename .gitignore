@@ -16,4 +16,8 @@ pom.xml.asc
 node_modules
 .shadow-cljs/
 shadow-cljs.edn
-
+goldly_bindings_generated.cljs
+karma.conf.js
+package.json
+package-lock.json
+shadow-cljs.edn
