@@ -10,6 +10,7 @@
 ; reagent syntax typically passes options as a map in the
 ; first parameter.
 
+
 (defn ^{:category :data} listplot
   ([data]
    (listplot {} data))

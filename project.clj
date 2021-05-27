@@ -26,11 +26,8 @@
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-time "0.15.2"] ;time axis creation 
                  [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/gorilla-ui "0.3.23"]]
+                 [org.pinkgorilla/gorilla-ui "0.3.27"]]
 
-  :aliases {"goldly"
-            ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
-             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaplot.edn"]}
 
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
@@ -38,12 +35,12 @@
                     :dependencies [[metasoarous/darkstar "0.1.0"]
                                    [cheshire "5.10.0"]
                                    [com.taoensso/tufte "2.1.0"]]}
-             
+
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.48"]]
+                                     [org.pinkgorilla/goldly "0.2.71"]]
                       :resource-paths ["target/webly"]} ; bundle
-             
-             :dev {:dependencies [[org.pinkgorilla/webly "0.2.38"] ; brings shadow
+
+             :dev {:dependencies [[org.pinkgorilla/webly "0.2.41"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
@@ -82,4 +79,7 @@
                                   :cljfmt       {:indents {as->                [[:inner 0]]
                                                            with-debug-bindings [[:inner 0]]
                                                            merge-meta          [[:inner 0]]
-                                                           try-if-let          [[:block 1]]}}}}})
+                                                           try-if-let          [[:block 1]]}}}}}
+  :aliases {"goldly"
+            ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
+             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaplot.edn"]})

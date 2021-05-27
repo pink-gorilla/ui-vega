@@ -17,7 +17,8 @@
 (defn data-from-list
   [data-key data]
   {:data [{:name   data-key
-           :values (map (fn [[x y]] {:x x :y y}) data)}]})
+           :values (into []
+                         (map (fn [[x y]] {:x x :y y}) data))}]})
 
 (defn default-plot-axes
   [x-title y-title]
