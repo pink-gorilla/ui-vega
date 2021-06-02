@@ -9,7 +9,9 @@
 
 (deftest list-plot-test
   (let [p (list-plot d)]
-    (is (= :p/vega (first p)))))
+    (is (= :p/vega (first p)))  ; spec test
+    (is (= {:R true} (meta p))) ; meta
+    ))
 
 ; todo: 
 ; bar-chart compose histogram plot
