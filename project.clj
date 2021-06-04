@@ -2,10 +2,8 @@
   :description "A simple data-driven plotting dsl using Vega via Gorilla UI."
   :url "https://github.com/pink-gorilla/gorilla-plot"
   :license {:name "MIT"}
-
   :min-lein-version "2.9.3"
   :min-java-version "1.11"
-
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"
                                      :username :env/release_username
                                      :password :env/release_password
@@ -22,13 +20,10 @@
   :source-paths ["src"]
   :test-paths ["test"]
   :target-path  "target/jar"
-
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-time "0.15.2"] ;time axis creation 
                  [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/gorilla-ui "0.3.27"]]
-
-
+                 [org.pinkgorilla/gorilla-ui "0.3.31"]]
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
              :perf {:source-paths ["dev"]
@@ -36,11 +31,14 @@
                                    [cheshire "5.10.0"]
                                    [com.taoensso/tufte "2.1.0"]]}
 
+             :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
+                                       [org.pinkgorilla/notebook "0.5.23"]]}
+
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.71"]]
+                                     [org.pinkgorilla/goldly "0.2.81"]]
                       :resource-paths ["target/webly"]} ; bundle
 
-             :dev {:dependencies [[org.pinkgorilla/webly "0.2.41"] ; brings shadow
+             :dev {:dependencies [[org.pinkgorilla/webly "0.2.46"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]
@@ -80,6 +78,14 @@
                                                            with-debug-bindings [[:inner 0]]
                                                            merge-meta          [[:inner 0]]
                                                            try-if-let          [[:block 1]]}}}}}
-  :aliases {"goldly"
-            ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
-             "run" "-m" "goldly-server.app" "watch" "goldly-gorillaplot.edn"]})
+  :aliases
+  {"goldly"
+   ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
+    "run" "-m" "goldly-server.app" "watch" "goldly-gorillaplot.edn"]
+
+   "notebook"
+   ["with-profile" "+notebook"
+    "run" "-m" "pinkgorilla.notebook-ui.app.app"
+    "notebook-plot.edn"
+    "watch"
+    ]})

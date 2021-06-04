@@ -1,0 +1,11 @@
+{:goldly {:enabled true
+          :extensions [[pinkgorilla.ui.goldly] ; gorilla-ui
+                       [pinkgorilla.gorilla-plot.goldly] ; gorilla-plot
+                       ]}
+ :explorer {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}
+                                    #_{:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
+            :server {:resource-root-path "notebooks-none"
+                     :roots
+                     {:gorilla-plot "./resources/notebooks"}}}
+ 
+ }

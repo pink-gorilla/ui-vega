@@ -1,11 +1,14 @@
 (ns pinkgorilla.gorilla-plot.goldly
   (:require
-
    [goldly.sci.bindings :refer [add-cljs-namespace add-cljs-bindings]]
    [systems.snippet-registry :refer [add-snippet]]))
 
-; cljs ui
+; clj
 
+;(require '[pinkgorilla.gorilla-plot.core])
+
+
+; cljs ui
 
 (add-cljs-namespace [pinkgorilla.gorilla-plot.pinkie])
 

@@ -9,14 +9,11 @@ and is a more condensed specification with less features.
 - gorilla-plots provides a few functions to quickly generate vega specs, and
   therefore vega plots.
 
-## Demo ui components with Goldly
+## Demos  (port : 8000)
 
-Run `lein goldly` to run goldly with gorilla-ui snippets.
+Run `lein notebook` to edit example notebooks.
 
-This will run a web server at port 8000 with examples of gorilla-plot.
-Navigate to snippets registry.
-
-
+Run `lein goldly` to see gorilla-plot goldly snippets. Navigate to snippets registry.
 
 ## Implementation
 
