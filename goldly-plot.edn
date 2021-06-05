@@ -1,0 +1,5 @@
+{:goldly {:extensions [[pinkgorilla.ui.goldly] ; ui inputs in demos
+                       [pinkgorilla.vega.goldly]
+                       [pinkgorilla.vega.snippets]
+                       ]}}
+

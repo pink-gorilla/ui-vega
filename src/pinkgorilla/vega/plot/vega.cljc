@@ -1,4 +1,4 @@
-(ns pinkgorilla.gorilla-plot.vega)
+(ns pinkgorilla.vega.plot.vega)
 
 ;; Constants for padding and offsets are chosen so
 ;; that simple axis titles are visible and do not

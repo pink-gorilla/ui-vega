@@ -2,7 +2,7 @@
   (:require
    #?(:cljs [cljs.test :refer-macros [deftest is]]
       :clj  [clojure.test :refer [deftest is]])
-   [pinkgorilla.gorilla-plot.util :refer [gen-uuid]]))
+   [pinkgorilla.vega.plot.util :refer [gen-uuid]]))
 
 (deftest uuid-not-nil
   (is (not (nil? (gen-uuid)))))

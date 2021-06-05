@@ -1,9 +1,10 @@
-(ns pinkgorilla.gorilla-plot.core
+(ns pinkgorilla.vega.plot.core
   "functions in .plot ns will only generate vega-specs.
    In .core ns we wrap the result of all functions into [:vega spec]"
   (:require
-   [pinkgorilla.gorilla-plot.plot :as p]
-   [pinkgorilla.gorilla-plot.multi :as m]))
+
+   [pinkgorilla.vega.plot.plot :as p]
+   [pinkgorilla.vega.plot.multi :as m]))
 
 (defn -vega! [spec]
   (with-meta [:p/vega spec] {:R true})) ; creates ^:R [:vega spec]
@@ -30,4 +31,5 @@
     (->> plots-unwrapped
          (apply p/compose)
          (-vega!))))
+
 

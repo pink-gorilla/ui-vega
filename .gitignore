@@ -15,10 +15,10 @@ pom.xml.asc
 .settings/*
 node_modules
 .shadow-cljs/
-shadow-cljs.edn
-goldly_bindings_generated.cljs
+.webly
 karma.conf.js
 package.json
 package-lock.json
 shadow-cljs.edn
-.webly
+goldly_bindings_generated.cljs
+.calva

@@ -2,7 +2,7 @@
   (:require
    #?(:cljs [cljs.test :refer-macros [deftest is]]
       :clj  [clojure.test :refer [deftest is]])
-   [pinkgorilla.gorilla-plot.core :refer [list-plot]]))
+   [pinkgorilla.vega.plot.core :refer [list-plot]]))
 
 (def d
   [1 3 5 7 9 5 4 6 9 8 3 5 6])

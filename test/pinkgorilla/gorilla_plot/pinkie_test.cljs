@@ -1,7 +1,7 @@
 (ns pinkgorilla.gorilla-plot.pinkie-test
   (:require
    [cljs.test :refer-macros [deftest is]]
-   [pinkgorilla.gorilla-plot.pinkie]))
+   [pinkgorilla.vega.pinkie]))
 
 ; make sure it compiles
 

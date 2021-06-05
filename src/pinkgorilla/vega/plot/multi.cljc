@@ -1,4 +1,4 @@
-(ns pinkgorilla.gorilla-plot.multi
+(ns pinkgorilla.vega.plot.multi
   "multi-plots
      -multiple plots in one chart
      -multiple plots horizontal"

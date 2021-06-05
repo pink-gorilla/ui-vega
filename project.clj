@@ -20,10 +20,16 @@
   :source-paths ["src"]
   :test-paths ["test"]
   :target-path  "target/jar"
+
+  :managed-dependencies [; conflict resolution for notebook
+                         [borkdude/sci "0.2.5"]
+                         [com.fasterxml.jackson.core/jackson-core "2.12.3"]
+                         [cljs-ajax "0.8.3"]]
+
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-time "0.15.2"] ;time axis creation 
-                 [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/gorilla-ui "0.3.31"]]
+                 [com.andrewmcveigh/cljs-time "0.5.2"]]
+  
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
              :perf {:source-paths ["dev"]
@@ -32,11 +38,14 @@
                                    [com.taoensso/tufte "2.1.0"]]}
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.23"]]}
+                                       [org.pinkgorilla/notebook "0.5.25"]
+                                       [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in goldly demos
+                                       ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.81"]]
-                      :resource-paths ["target/webly"]} ; bundle
+                                     [org.pinkgorilla/goldly "0.2.83"]
+                                     [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in demos
+                                     ]}
 
              :dev {:dependencies [[org.pinkgorilla/webly "0.2.46"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
@@ -81,11 +90,12 @@
   :aliases
   {"goldly"
    ["with-profile" "-dev,+goldly" ; dev is excluded because clj-kondo has old sci
-    "run" "-m" "goldly-server.app" "watch" "goldly-gorillaplot.edn"]
+    "run" "-m" "goldly-server.app"
+    "goldly-plot.edn"
+    "watch"]
 
    "notebook"
    ["with-profile" "+notebook"
     "run" "-m" "pinkgorilla.notebook-ui.app.app"
     "notebook-plot.edn"
-    "watch"
-    ]})
+    "watch"]})

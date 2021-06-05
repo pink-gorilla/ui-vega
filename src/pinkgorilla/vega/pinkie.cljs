@@ -1,14 +1,21 @@
-(ns pinkgorilla.gorilla-plot.pinkie
+(ns pinkgorilla.vega.pinkie
   (:require
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.ui.viz.vega :refer [vega]]
-   [pinkgorilla.gorilla-plot.plot :as plot]
-   [pinkgorilla.gorilla-plot.core :refer [compose]]))
+   [pinkgorilla.vega :refer [vega vegaa]]
+   [pinkgorilla.vega.plot.plot :as plot]
+   [pinkgorilla.vega.plot.core :refer [compose]]))
 
 ; this wrappers are necessary, as the repl api for gorilla-plot 
 ; supplies options as partitioned :key :val args in the end
 ; reagent syntax typically passes options as a map in the
 ; first parameter.
+
+; vega
+
+(register-component :p/vega vega)
+(register-component :p/vegaa vegaa)
+
+;; plot
 
 
 (defn ^{:category :data} listplot
