@@ -1,6 +1,6 @@
-(defproject org.pinkgorilla/gorilla-plot "1.2.14-SNAPSHOT"
-  :description "A simple data-driven plotting dsl using Vega via Gorilla UI."
-  :url "https://github.com/pink-gorilla/gorilla-plot"
+(defproject org.pinkgorilla/gorilla-plot "0.0.1-SNAPSHOT"
+  :description "Vega renderer and a simple data-driven plotting dsl."
+  :url "https://github.com/pink-gorilla/ui-vega"
   :license {:name "MIT"}
   :min-lein-version "2.9.3"
   :min-java-version "1.11"
