@@ -22,6 +22,8 @@ jobs:
     - name: Install dependencies
       run: |
         lein deps
+        lein notebook npm-install
+        ./scripts/copy_res.sh 
     - name: Check formatting
       run: lein cljfmt check
     #- name: Lint

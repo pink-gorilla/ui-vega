@@ -206,9 +206,9 @@
   (histogram (repeatedly 10000 #(- (apply + (repeatedly 50 rand)) 23))
              :bins 100
              :normalise :probability-density
-             :colour "green")
+             :color "green")
   (plot #(gaussian % 2 0) [-10 10])
-  (plot #(gaussian % 2 2) [-10 10] :colour "orange"))
+  (plot #(gaussian % 2 2) [-10 10] :color "orange"))
 ;; @@
 ;; ->
 ;;; 

@@ -1,7 +1,7 @@
 (ns pinkgorilla.vega.pinkie
   (:require
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.vega :refer [vega vegaa]]
+   [pinkgorilla.vega :refer [vega]]
    [pinkgorilla.vega.plot.plot :as plot]
    [pinkgorilla.vega.plot.core :refer [compose]]))
 
@@ -10,13 +10,11 @@
 ; reagent syntax typically passes options as a map in the
 ; first parameter.
 
-; vega
+;; vega
 
 (register-component :p/vega vega)
-(register-component :p/vegaa vegaa)
 
 ;; plot
-
 
 (defn ^{:category :data} listplot
   ([data]

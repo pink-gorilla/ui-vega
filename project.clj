@@ -21,6 +21,8 @@
   :test-paths ["test"]
   :target-path  "target/jar"
 
+  :resource-paths ["target/node_modules"] ; vega specs json
+
   :managed-dependencies [; conflict resolution for notebook
                          [borkdude/sci "0.2.5"]
                          [com.fasterxml.jackson.core/jackson-core "2.12.3"]
@@ -38,12 +40,12 @@
                                    [com.taoensso/tufte "2.1.0"]]}
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.25"]
+                                       [org.pinkgorilla/notebook "0.5.26"]
                                        [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in goldly demos
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.83"]
+                                     [org.pinkgorilla/goldly "0.2.84"]
                                      [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in demos
                                      ]}
 
@@ -94,8 +96,9 @@
     "goldly-plot.edn"
     "watch"]
 
-   "notebook"
+   "notebook" ; used for ui-demo and npm-install to provide resources
    ["with-profile" "+notebook"
     "run" "-m" "pinkgorilla.notebook-ui.app.app"
-    "notebook-plot.edn"
-    "watch"]})
+    "notebook-plot.edn"]
+   
+   })

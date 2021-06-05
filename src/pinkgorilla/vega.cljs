@@ -27,6 +27,22 @@
                 (.appendChild dom-node
                               (.createTextNode js/document (str "Vega Spec error: " em)))))))
 
+
+; [cljsjs.vega-tooltip]
+; https://github.com/sorenmacbeth/vizard/blob/master/src/cljs/vizard/core.cljs
+
+
+#_(defn parse-vl-spec [spec elem]
+    (when spec
+      (let [opts {:renderer "canvas"
+                  :mode "vega-lite"}]
+        (-> (js/vegaEmbed elem spec (clj->js opts))
+            (.then (fn [res]
+                     #_(log res)
+                     (. js/vegaTooltip (vegaLite (.-view res) spec))))
+            (.catch (fn [err]
+                      (log err)))))))
+
 (defn ^{:category :data}
   vega
   "displays chart defined in vega spec
@@ -34,11 +50,5 @@
   [data-clj]
   [render-js {:f render-vega :data data-clj}])
 
-(defn ^{:category :data}
-  vegaa
-  "displays chart defined in vega spec
-   gets spec from the key k in atom s 
-   "
-  [s k]
-  [vega (k @s)])
+
 

@@ -22,7 +22,7 @@
 (defn list-plot
   "Function for plotting list data."
   [data & {:keys [joined plot-size aspect-ratio plot-range symbol-size opacity series-name #_symbol ; keys with default values
-                  colour color x-title y-title] ; keys  without default values
+                  color x-title y-title] ; keys  without default values
            :or   {joined       false
                   plot-size    400
                   aspect-ratio 1.618
@@ -40,8 +40,8 @@
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name plot-data)
      (if joined
-       (vega/line-plot-marks series-name (or colour color) opacity)
-       (vega/list-plot-marks series-name (or colour color) #_symbol symbol-size opacity))
+       (vega/line-plot-marks series-name color opacity)
+       (vega/list-plot-marks series-name color #_symbol symbol-size opacity))
      (vega/default-list-plot-scales series-name plot-range)
      (vega/default-plot-axes x-title y-title))))
 
@@ -66,7 +66,7 @@
 
 (defn bar-chart
   [categories values & {:keys [plot-size aspect-ratio plot-range opacity ; keys with defaults
-                               colour color x-title y-title]
+                               color x-title y-title]
                         :or   {plot-size    400
                                aspect-ratio 1.618
                                plot-range   [:all :all]
@@ -75,13 +75,13 @@
     (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name (map vector categories values))
-     (vega/bar-chart-marks series-name (or colour color) opacity)
+     (vega/bar-chart-marks series-name color opacity)
      (vega/default-bar-chart-scales series-name plot-range)
      (vega/default-plot-axes x-title y-title))))
 
 (defn histogram
   "Plot the histogram of a sample."
-  [data & {:keys [plot-range bins normalize normalise plot-size aspect-ratio colour color opacity fill-opacity x-title y-title]
+  [data & {:keys [plot-range bins normalize normalise plot-size aspect-ratio color opacity fill-opacity x-title y-title]
            :or   {plot-range   [:all :all]
                   bins         :automatic
                   plot-size    400
@@ -120,7 +120,7 @@
     (merge-with-meta
      (vega/container plot-size aspect-ratio)
      (vega/data-from-list series-name plot-data)
-     (vega/histogram-marks series-name (or colour color) opacity fill-opacity)
+     (vega/histogram-marks series-name color opacity fill-opacity)
      (vega/default-list-plot-scales series-name plot-range)
      (vega/default-plot-axes x-title y-title))))
 

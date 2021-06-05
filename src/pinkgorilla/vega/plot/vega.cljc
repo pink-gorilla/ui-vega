@@ -64,12 +64,12 @@
              :domain (domain-helper data-key (second plot-range) "y")}]})
 
 (defn list-plot-marks
-  [data-key colour #_shape size opacity]
+  [data-key color #_shape size opacity]
   {:marks [{:type        "symbol"
             :from       {:data data-key}
             :encode     {:enter  {:x           {:scale "x", :field "x"}
                                   :y           {:scale "y", :field "y"}
-                                  :fill        {:value (or colour "steelblue")}
+                                  :fill        {:value (or color "steelblue")}
                                   :fillOpacity {:value opacity}}
                          :update {:shape #_shape "circle"
                                   :size        {:value size}
@@ -119,14 +119,14 @@
 
 
 (defn histogram-marks
-  [data-key colour opacity fillOpacity]
+  [data-key color opacity fillOpacity]
   {:marks [{:type       "line"
             :from       {:data data-key}
             :encode     {:enter {:x             {:scale "x", :field "x"}
                                  :y             {:scale "y", :field "y"}
                                  :interpolate   {:value "step-before"}
-                                 :fill          {:value (or colour "steelblue")}
+                                 :fill          {:value (or color "steelblue")}
                                  :fillOpacity   {:value fillOpacity}
-                                 :stroke        {:value (or colour "steelblue")}
+                                 :stroke        {:value (or color "steelblue")}
                                  :strokeWidth   {:value 2}
                                  :strokeOpacity {:value opacity}}}}]})

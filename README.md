@@ -13,7 +13,7 @@ and is a more condensed specification with less features.
 
 ## Demos  (port : 8000)
 
-Run `lein notebook` to edit example notebooks.
+Run `lein notebook watch` to edit example notebooks.
 
 Run `lein goldly` to see gorilla-plot goldly snippets. Navigate to snippets registry.
 

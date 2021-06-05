@@ -18,3 +18,7 @@
   [data min max bin-width]
   (let [bin-starts (range min max bin-width)]
     (map #(count-in-range data % (+ % bin-width)) bin-starts)))
+
+(defn random-data [& names]
+  (apply concat (for [n names]
+                  (map-indexed (fn [i x] {:x i :y x :col n}) (take 20 (repeatedly #(rand-int 100)))))))
