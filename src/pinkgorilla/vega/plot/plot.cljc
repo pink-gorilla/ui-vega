@@ -130,7 +130,6 @@
         {:keys [width height padding scales axes]} first-plot
         data (apply concat (map :data plots))
         marks (apply concat (map :marks plots))]
-    ;^{:p/render-as :p/vega}
     {; take plot parameter from first plot
      :width   width
      :height  height

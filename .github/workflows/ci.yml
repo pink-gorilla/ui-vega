@@ -19,15 +19,15 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/project.clj') }}
         restore-keys: |
           ${{ runner.os }}-maven-
+    - name: Check formatting
+      run: lein cljfmt check
+    #- name: Lint
+    #  run: lein clj-kondo --config clj-kondo.edn --lint .
     - name: Install dependencies
       run: |
         lein deps
         lein notebook npm-install
         ./scripts/copy_res.sh 
-    - name: Check formatting
-      run: lein cljfmt check
-    #- name: Lint
-    #  run: lein clj-kondo --config clj-kondo.edn --lint .
     - name: Run tests
       run: |
         lein test
