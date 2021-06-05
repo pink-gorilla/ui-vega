@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/gorilla-plot "0.0.1-SNAPSHOT"
+(defproject org.pinkgorilla/gorilla-plot "0.0.1"
   :description "Vega renderer and a simple data-driven plotting dsl."
   :url "https://github.com/pink-gorilla/ui-vega"
   :license {:name "MIT"}
