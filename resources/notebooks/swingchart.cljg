@@ -1,0 +1,75 @@
+;; gorilla-repl.fileformat = 2
+
+;; @@ [meta]
+{:id :ebf420ed-326a-4b82-b3ca-1ba6e5cde7a9}
+
+;; @@
+
+;; **
+;;; # Pink Gorilla
+;; **
+
+;; @@ [clj]
+(ns thriving-hurricane)
+(require '[pinkgorilla.repl :refer [require-default]]) 
+ (require '[pinkgorilla.repl.clj.pomegranate :refer [add-dependencies]]) 
+ ; (add-dependencies '[cljs-ajax/cljs-ajax "0.8.3"]) 
+(require-default)
+;; @@
+
+;; @@ [clj]
+^:R [:p.bg-blue-300 "Hello, World!"] 
+
+;; @@
+
+;; @@ [clj]
+(plot/list-plot (concat (range 10) (reverse (range 10))))
+;; @@
+
+;; @@ [cljs]
+ (vega {:$schema "https://vega.github.io/schema/vega-lite/v5.json",
+  :description "Shows the relationship between horsepower and the number of cylinders using tick marks.",
+  :data {:url "/r/data/cars.json"},
+        :height 400
+        :width 500
+  :mark "tick",
+  :encoding {
+    "x" {:field "Horsepower", :type "quantitative"},
+    "y" {:field "Cylinders", :type "ordinal"}
+  }}
+)
+;; @@
+
+;; @@ [clj]
+ (vega {;:$schema "http://localhost:8000/r/vega-lite/build/vega-lite-schema.json"  ;https://vega.github.io/schema/vega-lite/v5.json",
+        :description "Shows the relationship between horsepower and the number of cylinders using tick marks.",
+        :data {:url "/r/data/swings.json"},
+        :height 400
+        :width 500
+        :layer [{:mark "rect" ; {:type "rect", :height 100 :width 200}
+                 :encoding {"x"   {:field "idx"  :type "quantitative"},
+                            "x2"  {:field "idx2"  :type "quantitative"}
+                            "y"   {:field "Low"  :type "quantitative"}
+                            "y2"  {:field "High" :type "quantitative"} 
+                            ;"color" {:value  "orange"}
+                            "color" {:field "dir"
+                                     :type "nominal"
+                                     :scale {:domain ["up", "down", "drizzle", "rain", "snow"],
+                                             :range ["green", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]}}
+                            
+                            }}
+      {:mark {:type "point", :height 10 :width 20}
+       :encoding {"x"   {:field "idx", :type "quantitative"},                 
+                  "y"   {:field "High", :type "quantitative"}
+                  "color" {:value  "red"}}}         
+                ]
+        
+        }
+)
+;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/vega",["^ ","~:description","Shows the relationship between horsepower and the number of cylinders using tick marks.","~:data",["^ ","~:url","/r/data/swings.json"],"~:height",400,"~:width",500,"~:layer",[["^ ","~:mark","rect","~:encoding",["^ ","x",["^ ","~:field","idx","^0","quantitative"],"x2",["^ ","^=","idx2","^0","quantitative"],"y",["^ ","^=","Low","^0","quantitative"],"y2",["^ ","^=","High","^0","quantitative"],"color",["^ ","^=","dir","^0","nominal","~:scale",["^ ","~:domain",["up","down","drizzle","rain","snow"],"~:range",["green","#c7c7c7","#aec7e8","#1f77b4","#9467bd"]]]]],["^ ","^;",["^ ","^0","point","^8",10,"^9",20],"^<",["^ ","x",["^ ","^=","idx","^0","quantitative"],"y",["^ ","^=","High","^0","quantitative"],"^>",["^ ","~:value","red"]]]]]],"~:map-keywords",true]]]
+;; <=

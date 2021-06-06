@@ -1,17 +1,19 @@
 (ns pinkgorilla.vega.goldly
   (:require
    [pinkgorilla.repl :refer [add-require]]
-   [goldly.sci.bindings :refer [add-cljs-namespace add-cljs-ns-bindings]]))
+   [goldly.sci.bindings :refer [add-cljs-namespace add-cljs-bindings add-cljs-ns-bindings]]))
 
-; cljs - pinkie
-(add-cljs-namespace [pinkgorilla.vega.pinkie])
+; vega renderer
 
+(add-cljs-namespace [pinkgorilla.vega.pinkie]) ;cljs - pinkie
+(add-require '[pinkgorilla.vega :refer [vega]])
+(add-cljs-bindings {'vega pinkgorilla.vega/vega}) ; vega fn to render a spec
 
 ; plot ns in clj + cljs 
 
-
 (add-require '[pinkgorilla.vega.plot.core :as plot])
 
+(add-cljs-namespace [pinkgorilla.vega.plot.core])
 (add-cljs-ns-bindings
  'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
         'bar-chart pinkgorilla.vega.plot.core/bar-chart

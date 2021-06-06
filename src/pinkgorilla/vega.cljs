@@ -43,11 +43,13 @@
             (.catch (fn [err]
                       (log err)))))))
 
-(defn ^{:category :data}
+(defn ^{:category :data
+        :R true}
   vega
   "displays chart defined in vega spec
    "
   [data-clj]
+  ^:R
   [render-js {:f render-vega :data data-clj}])
 
 
