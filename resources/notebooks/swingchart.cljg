@@ -16,15 +16,33 @@
  ; (add-dependencies '[cljs-ajax/cljs-ajax "0.8.3"]) 
 (require-default)
 ;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:hiccup","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"]],["^ ","^0","^1","^2",["^3",["^ ","^4","clj-nil"],"nil"]],["^ ","^0","^1","^2",["^3",["^ ","^4","clj-nil"],"nil"]],["^ ","^0","^1","^2",["^3",["^ ","^4","clj-nil"],"nil"]]]
+;; <=
 
 ;; @@ [clj]
 ^:R [:p.bg-blue-300 "Hello, World!"] 
 
 ;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p.bg-blue-300","Hello, World!"],"~:map-keywords",true]]]
+;; <=
 
 ;; @@ [clj]
 (plot/list-plot (concat (range 10) (reverse (range 10))))
 ;; @@
+;; ->
+;;; 
+;; <-
+;; =>
+;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/vega",["^ ","~:$schema","https://vega.github.io/schema/vega/v5.json","~:width",400,"~:height",247.2188,"~:padding",["^ ","~:top",10,"~:left",55,"~:bottom",40,"~:right",10],"~:data",[["^ ","~:name","5f5a9761-4c4f-45e0-8bb0-b2cf3088f963","~:values",[["^ ","~:x",0,"~:y",0],["^ ","~:x",1,"~:y",1],["^ ","~:x",2,"~:y",2],["^ ","~:x",3,"~:y",3],["^ ","~:x",4,"~:y",4],["^ ","~:x",5,"~:y",5],["^ ","~:x",6,"~:y",6],["^ ","~:x",7,"~:y",7],["^ ","~:x",8,"~:y",8],["^ ","~:x",9,"~:y",9],["^ ","~:x",10,"~:y",9],["^ ","~:x",11,"~:y",8],["^ ","~:x",12,"~:y",7],["^ ","~:x",13,"~:y",6],["^ ","~:x",14,"~:y",5],["^ ","~:x",15,"~:y",4],["^ ","~:x",16,"~:y",3],["^ ","~:x",17,"~:y",2],["^ ","~:x",18,"~:y",1],["^ ","~:x",19,"~:y",0]]]],"~:marks",[["^ ","^0","symbol","~:from",["^ ","^=","5f5a9761-4c4f-45e0-8bb0-b2cf3088f963"],"~:encode",["^ ","~:enter",["^ ","~:x",["^ ","~:scale","x","~:field","x"],"~:y",["^ ","^D","y","^E","y"],"~:fill",["^ ","~:value","steelblue"],"~:fillOpacity",["^ ","^G",1]],"~:update",["^ ","~:shape","circle","~:size",["^ ","^G",70],"~:stroke",["^ ","^G","transparent"]],"~:hover",["^ ","^K",["^ ","^G",210],"^L",["^ ","^G","white"]]]]],"~:scales",[["^ ","^>","x","^0","linear","~:range","width","~:zero",false,"~:domain",["^ ","^=","5f5a9761-4c4f-45e0-8bb0-b2cf3088f963","^E","x"]],["^ ","^>","y","^0","linear","^O","height","~:nice",true,"^P",false,"^Q",["^ ","^=","5f5a9761-4c4f-45e0-8bb0-b2cf3088f963","^E","y"]]],"~:axes",[["^ ","~:orient","bottom","^D","x"],["^ ","^T","left","^D","y"]]]],"~:map-keywords",true]]]
+;; <=
 
 ;; @@ [cljs]
  (vega {:$schema "https://vega.github.io/schema/vega-lite/v5.json",
@@ -39,8 +57,11 @@
   }}
 )
 ;; @@
+;; =>
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/vega",["^ ","~:$schema","https://vega.github.io/schema/vega-lite/v5.json","~:description","Shows the relationship between horsepower and the number of cylinders using tick marks.","~:data",["^ ","~:url","/r/data/cars.json"],"~:height",400,"~:width",500,"~:mark","tick","~:encoding",["^ ","x",["^ ","~:field","Horsepower","^0","quantitative"],"y",["^ ","^=","Cylinders","^0","ordinal"]]]],"~:map-keywords",true]]
+;; <=
 
-;; @@ [clj]
+;; @@ [cljs]
  (vega {;:$schema "http://localhost:8000/r/vega-lite/build/vega-lite-schema.json"  ;https://vega.github.io/schema/vega-lite/v5.json",
         :description "Shows the relationship between horsepower and the number of cylinders using tick marks.",
         :data {:url "/r/data/swings.json"},
@@ -54,8 +75,8 @@
                             ;"color" {:value  "orange"}
                             "color" {:field "dir"
                                      :type "nominal"
-                                     :scale {:domain ["up", "down", "drizzle", "rain", "snow"],
-                                             :range ["green", "#c7c7c7", "#aec7e8", "#1f77b4", "#9467bd"]}}
+                                     :scale {:domain ["up" "down" ],
+                                             :range ["green" "#c7c7c7"]}}
                             
                             }}
       {:mark {:type "point", :height 10 :width 20}
@@ -67,9 +88,6 @@
         }
 )
 ;; @@
-;; ->
-;;; 
-;; <-
 ;; =>
-;;; [["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/vega",["^ ","~:description","Shows the relationship between horsepower and the number of cylinders using tick marks.","~:data",["^ ","~:url","/r/data/swings.json"],"~:height",400,"~:width",500,"~:layer",[["^ ","~:mark","rect","~:encoding",["^ ","x",["^ ","~:field","idx","^0","quantitative"],"x2",["^ ","^=","idx2","^0","quantitative"],"y",["^ ","^=","Low","^0","quantitative"],"y2",["^ ","^=","High","^0","quantitative"],"color",["^ ","^=","dir","^0","nominal","~:scale",["^ ","~:domain",["up","down","drizzle","rain","snow"],"~:range",["green","#c7c7c7","#aec7e8","#1f77b4","#9467bd"]]]]],["^ ","^;",["^ ","^0","point","^8",10,"^9",20],"^<",["^ ","x",["^ ","^=","idx","^0","quantitative"],"y",["^ ","^=","High","^0","quantitative"],"^>",["^ ","~:value","red"]]]]]],"~:map-keywords",true]]]
+;;; ["^ ","~:type","~:reagent","~:content",["^ ","~:hiccup",["~:p/vega",["^ ","~:description","Shows the relationship between horsepower and the number of cylinders using tick marks.","~:data",["^ ","~:url","/r/data/swings.json"],"~:height",400,"~:width",500,"~:layer",[["^ ","~:mark","rect","~:encoding",["^ ","x",["^ ","~:field","idx","^0","quantitative"],"x2",["^ ","^=","idx2","^0","quantitative"],"y",["^ ","^=","Low","^0","quantitative"],"y2",["^ ","^=","High","^0","quantitative"],"color",["^ ","^=","dir","^0","nominal","~:scale",["^ ","~:domain",["up","down"],"~:range",["green","#c7c7c7"]]]]],["^ ","^;",["^ ","^0","point","^8",10,"^9",20],"^<",["^ ","x",["^ ","^=","idx","^0","quantitative"],"y",["^ ","^=","High","^0","quantitative"],"^>",["^ ","~:value","red"]]]]]],"~:map-keywords",true]]
 ;; <=

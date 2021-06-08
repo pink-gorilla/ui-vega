@@ -41,16 +41,16 @@
                                    [com.taoensso/tufte "2.1.0"]]}
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.26"]
-                                       [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in goldly demos
+                                       [org.pinkgorilla/notebook "0.5.28"]
+                                       [org.pinkgorilla/ui-input "0.0.2"]
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.84"]
-                                     [org.pinkgorilla/gorilla-ui "0.3.32"] ; inputs in demos
+                                     [org.pinkgorilla/goldly "0.2.88"]
+                                     [org.pinkgorilla/ui-input "0.0.2"]
                                      ]}
 
-             :dev {:dependencies [[org.pinkgorilla/webly "0.2.46"] ; brings shadow
+             :dev {:dependencies [[org.pinkgorilla/webly "0.3.1"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]

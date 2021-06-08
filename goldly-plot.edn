@@ -1,4 +1,4 @@
-{:goldly {:extensions [[pinkgorilla.ui.goldly] ; ui inputs in demos
+{:goldly {:extensions [[pinkgorilla.input.goldly]
                        [pinkgorilla.vega.goldly]
                        [pinkgorilla.vega.snippets]
                        ]}}

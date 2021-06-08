@@ -1,5 +1,5 @@
 {:goldly {:enabled true
-          :extensions [[pinkgorilla.ui.goldly] ; gorilla-ui
+          :extensions [[pinkgorilla.input.goldly]
                        [pinkgorilla.vega.goldly]
                        ]}
  :explorer {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}

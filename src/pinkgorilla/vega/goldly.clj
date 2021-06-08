@@ -7,7 +7,7 @@
 
 (add-cljs-namespace [pinkgorilla.vega.pinkie]) ;cljs - pinkie
 (add-require '[pinkgorilla.vega :refer [vega]])
-(add-cljs-bindings {'vega pinkgorilla.vega/vega}) ; vega fn to render a spec
+(add-cljs-bindings {'vega pinkgorilla.vega.pinkie/vega}) ; vega fn to render a spec
 
 ; plot ns in clj + cljs 
 

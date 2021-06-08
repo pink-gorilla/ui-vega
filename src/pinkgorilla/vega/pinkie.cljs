@@ -1,7 +1,7 @@
 (ns pinkgorilla.vega.pinkie
   (:require
    [pinkie.pinkie :refer-macros [register-component]]
-   [pinkgorilla.vega :refer [vega]]
+   [pinkgorilla.vega]
    [pinkgorilla.vega.plot.plot :as plot]
    [pinkgorilla.vega.plot.core :refer [compose]]))
 
@@ -12,9 +12,21 @@
 
 ;; vega
 
-(register-component :p/vega vega)
+(register-component :p/vega pinkgorilla.vega/vega)
+
+(defn ^{:category :data
+        :R true}
+  vega
+  "displays chart defined in vega spec
+   "
+  [vega-spec]
+  ^:R
+  [:p/vega vega-spec])
+
+
 
 ;; plot
+
 
 (defn ^{:category :data} listplot
   ([data]
