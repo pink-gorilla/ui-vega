@@ -1,66 +1,4 @@
-(ns pinkgorilla.vega.plot.vega)
-
-;; Constants for padding and offsets are chosen so
-;; that simple axis titles are visible and do not
-;; obstruct axis labels, for common ranges. A smarter
-;; dynamic approach is probably possible, but for most
-;; practical cases this is sufficient.
-
-(defn container
-  [plot-size aspect-ratio]
-  {:$schema "https://vega.github.io/schema/vega/v5.json"
-   :width   plot-size
-   :height  (float (/ plot-size aspect-ratio))
-   :padding {:top 10, :left 55, :bottom 40, :right 10}})
-
-(defn data-from-list
-  [data-key data]
-  {:data [{:name   data-key
-           :values (into []
-                         (map (fn [[x y]] {:x x :y y}) data))}]})
-
-(defn default-plot-axes
-  [x-title y-title]
-  {:axes [(merge {:orient "bottom" :scale "x"}
-                 (when x-title {:title x-title :titleOffset 30}))
-          (merge {:orient "left" :scale "y"}
-                 (when y-title {:title y-title :titleOffset 45}))]})
-
-;;; Scatter/list plots
-
-(defn- domain-helper
-  [data-key axis-plot-range axis]
-  (if (= axis-plot-range :all)
-    {:data data-key, :field (str axis)}
-    axis-plot-range))
-
-(defn default-list-plot-scales
-  [data-key plot-range]
-  {:scales [{:name   "x"
-             :type   "linear"
-             :range  "width"
-             :zero   false
-             :domain (domain-helper data-key (first plot-range) "x")}
-            {:name   "y"
-             :type   "linear"
-             :range  "height"
-             :nice   true
-             :zero   false
-             :domain (domain-helper data-key (second plot-range) "y")}]})
-
-(defn timeseries-list-plot-scales
-  [data-key plot-range]
-  {:scales [{:name   "x"
-             :type   "time"
-             :range  "width"
-             :zero   false
-             :domain (domain-helper data-key (first plot-range) "x")}
-            {:name   "y"
-             :type   "linear"
-             :range  "height"
-             :nice   true
-             :zero   false
-             :domain (domain-helper data-key (second plot-range) "y")}]})
+(ns pinkgorilla.vega.plot.make.marks)
 
 (defn list-plot-marks
   [data-key color #_shape size opacity]
@@ -89,17 +27,6 @@
 
 ;;; Bar charts
 
-
-(defn default-bar-chart-scales
-  [data-key plot-range]
-  {:scales [{:name   "x"
-             :type   "band" ; "ordinal"
-             :range  "width"
-             :domain (domain-helper data-key (first plot-range) "x")}
-            {:name   "y"
-             :range  "height"
-             :nice   true
-             :domain (domain-helper data-key (second plot-range) "y")}]})
 
 (defn bar-chart-marks
   [data-key color opacity]

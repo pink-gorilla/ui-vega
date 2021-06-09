@@ -4,7 +4,8 @@
   "width": 600,
   "height": 1600,
   "padding": 5,
-
+  "autosize": "none",
+  
   "signals": [
     {
       "name": "labels", "value": true,

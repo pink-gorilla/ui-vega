@@ -26,27 +26,26 @@
           [:h4 "generated via gorilla-plot dsl"]
           [:div.flex.flex-row.content-between
            [:div.flex.flex-col.justify-start
-            [:p/listplot d]
-            [:p/listplot {:joined true
+            [plot/list-plot d :joined true
                           :plot-size 400
                           :color "red"
                           :aspect-ratio 1.6
                           :plot-range [:all :all]
-                          :opacity 0.5} d]
-            #_[:p/composeplot
-               [:p/listplot d]
-               [:p/listplot {:joined true
-                             :color "blue"
-                             :plot-range [1 5]} d]]
-            #_[:p/histogram {:color "steelblue"
-                             :bins 100
-                             :normalize :probability-density} hdata]
-            [:p/barchart (range (count d)) d]
-            [:p/plot {:color "orange"
-                      :plot-points 50}
-             (fn [x] (sin x)) [0 10]]]]] ; sin is a symbol know to sci compiler
+                          :opacity 0.5]
+           ]]] ; sin is a symbol know to sci compiler
    :fns {}}
   {:fns {}}))
 
 
-
+ #_[:p/composeplot
+    [:p/listplot d]
+    [:p/listplot {:joined true
+                  :color "blue"
+                  :plot-range [1 5]} d]]
+#_[:p/histogram {:color "steelblue"
+                 :bins 100
+                 :normalize :probability-density} hdata]
+#_[:p/barchart (range (count d)) d]
+#_[:p/plot {:color "orange"
+            :plot-points 50}
+   (fn [x] (sin x)) [0 10]]

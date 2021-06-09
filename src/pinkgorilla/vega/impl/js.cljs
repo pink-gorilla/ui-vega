@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega
+(ns pinkgorilla.vega.impl.js
   "plugin to render vega-charts in pink-gorilla"
   (:require
    [pinkie.jsrender :refer [render-js]]

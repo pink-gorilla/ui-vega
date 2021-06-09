@@ -21,7 +21,7 @@
   :test-paths ["test"]
   :target-path  "target/jar"
 
-  :resource-paths ["resources" ; vega deo data and specs
+  :resource-paths ["resources" ; vega demo data and specs
                    "target/node_modules"] ; vega specs json
 
   :managed-dependencies [; conflict resolution for notebook

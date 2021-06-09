@@ -2,7 +2,8 @@
 (require '[goldly.runner :refer [system-start!]])
 
 (goldly/def-ui demo-charts
-  [{:label "bar-chart" :id "/r/vega/bar-chart.vg.json"}
+  [{:label "bar-chart"
+    :id "/r/vega/bar-chart.vg.json"}
    {:label "population-pyramid" :id "/r/vega/population-pyramid.vg.json"}
    {:label "tree-layout" :id "/r/vega/tree-layout.vg.json"}
    {:label "tree-map" :id "/r/vega/treemap.vg.json"}
@@ -21,22 +22,16 @@
    :state {:vega nil}
    :html [:div
           [:h1 "select the sample vega plot you want to see"]
-          [:p/select-a {:nav? false 
-                        :items demo-charts 
-                        :display :label} state [:vega]]
+          [:p/select {:nav? false
+                      :items demo-charts
+                      :display :label} state [:vega]]
           [:p "you selected: " (:vega @state)]
-          (when-let [id (get-in @state [:vega :id])]
-            [:p "id: " id]
-            [:p/vega id])]
+          (when-let [spec (get-in @state [:vega :id])]
+              [:p/vega {:spec spec}]
+              )]
    :fns {}}
   {:fns {}}))
 
 
-
-
-#_[:div
-   [:p/slider :widget :x 0 100 5]
-   [:p/slider :widget :y 0 100 5]
-   [:p/slider :widget :z 0 100 5]]
 
 

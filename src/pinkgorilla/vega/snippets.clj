@@ -2,38 +2,51 @@
   (:require
    [systems.snippet-registry :refer [add-snippet]]))
 
+;vegalite
+
+(add-snippet {:type :pinkie
+              :category :vega
+              :id :vegalite-point
+              :filename "snippets/vegalite/point.edn"})
+
+(add-snippet {:type :goldly-clj
+              :category :vega
+              :id :vegalite-bar
+              :filename "snippets/vegalite/bar.clj"})
+
+(add-snippet {:type :pinkie
+              :category  :vega
+              :id :vegalite-zoom
+              :filename "snippets/vegalite/zoom.edn"})
+
+(add-snippet {:type :pinkie
+              :category  :vega
+              :id :vegalite-multiline
+              :filename "snippets/vegalite/multiline.edn"})
+
 
 ;; vega
 
 
 (add-snippet {:type :pinkie
               :category :vega
-              :id :vega
-              :filename "snippets/vega/vega.edn"})
-
-(add-snippet {:type :goldly-clj
-              :category :vega
-              :id :vega-bar
-              :filename "snippets/vega/bar.clj"})
-
-(add-snippet {:type :pinkie
-              :category  :vega
-              :id :vega-multiline
-              :filename "snippets/vega/multiline.edn"})
-
-(add-snippet {:type :pinkie
-              :category  :vega
-              :id :vega-zoom
-              :filename "snippets/vega/zoom.edn"})
+              :id :vega-rect
+              :filename "snippets/vega/rect.edn"})
 
 (add-snippet {:type  :goldly-clj
               :category  :vega
               :id :vega-combo
-              :filename "snippets/vega/vega_combo.clj"})
+              :filename "snippets/vega/combo.clj"})
 
 ;; plot
 
-(add-snippet {:type :goldly-clj
+; broken
+#_(add-snippet {:type :goldly-clj
+                :category :vega-plot
+                :id :vega-gorilla-plot
+                :filename "snippets/vega.plot/gorilla_plot.clj"})
+
+(add-snippet {:type :pinkie
               :category :vega-plot
-              :id :vega-gorilla-plot
-              :filename "snippets/vega.plot/gorilla_plot.clj"})
+              :id :swing-chart
+              :filename "snippets/vega.plot/swings.edn"})

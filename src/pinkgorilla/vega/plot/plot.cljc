@@ -1,6 +1,9 @@
 (ns pinkgorilla.vega.plot.plot
   (:require
-   [pinkgorilla.vega.plot.vega :as vega]
+   [pinkgorilla.vega.plot.make.container :refer [container-vega data-from-list]]
+   [pinkgorilla.vega.plot.make.marks :as marks]
+   [pinkgorilla.vega.plot.make.axes :as axes]
+   [pinkgorilla.vega.plot.make.scales :as scales]
    [pinkgorilla.vega.plot.util :as util :refer [gen-uuid]]))
 
 ;; Series' are given random names so that plots can be composed
@@ -37,13 +40,13 @@
                     data
                     (add-indices data))]
     (merge-with-meta
-     (vega/container plot-size aspect-ratio)
-     (vega/data-from-list series-name plot-data)
+     (container-vega plot-size aspect-ratio)
+     (data-from-list series-name plot-data)
      (if joined
-       (vega/line-plot-marks series-name color opacity)
-       (vega/list-plot-marks series-name color #_symbol symbol-size opacity))
-     (vega/default-list-plot-scales series-name plot-range)
-     (vega/default-plot-axes x-title y-title))))
+       (marks/line-plot-marks series-name color opacity)
+       (marks/list-plot-marks series-name color #_symbol symbol-size opacity))
+     (scales/default-list-plot-scales series-name plot-range)
+     (axes/default-plot-axes x-title y-title))))
 
 (defn timeseries-plot [data & keys]
   (let [series-name (gen-uuid)
@@ -52,7 +55,7 @@
         plot-range [:all :all]]
     (merge-with-meta
      plot
-     (vega/timeseries-list-plot-scales series-name plot-range))))
+     (scales/timeseries-list-plot-scales series-name plot-range))))
 
 (defn plot
   "Function for plotting functions of a single variable."
@@ -73,11 +76,11 @@
                                opacity      1}}]
   (let [series-name (gen-uuid)]
     (merge-with-meta
-     (vega/container plot-size aspect-ratio)
-     (vega/data-from-list series-name (map vector categories values))
-     (vega/bar-chart-marks series-name color opacity)
-     (vega/default-bar-chart-scales series-name plot-range)
-     (vega/default-plot-axes x-title y-title))))
+     (container-vega plot-size aspect-ratio)
+     (data-from-list series-name (map vector categories values))
+     (marks/bar-chart-marks series-name color opacity)
+     (scales/default-bar-chart-scales series-name plot-range)
+     (axes/default-plot-axes x-title y-title))))
 
 (defn histogram
   "Plot the histogram of a sample."
@@ -118,11 +121,11 @@
         y-data (concat [0] cat-data [0])
         plot-data (map vector x-data y-data)]
     (merge-with-meta
-     (vega/container plot-size aspect-ratio)
-     (vega/data-from-list series-name plot-data)
-     (vega/histogram-marks series-name color opacity fill-opacity)
-     (vega/default-list-plot-scales series-name plot-range)
-     (vega/default-plot-axes x-title y-title))))
+     (container-vega plot-size aspect-ratio)
+     (data-from-list series-name plot-data)
+     (marks/histogram-marks series-name color opacity fill-opacity)
+     (scales/default-list-plot-scales series-name plot-range)
+     (axes/default-plot-axes x-title y-title))))
 
 (defn compose
   [& plots]
