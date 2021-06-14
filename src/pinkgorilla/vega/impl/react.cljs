@@ -34,8 +34,9 @@
 (defn vega [opts]
   (let [opts (if (:spec opts) opts {:spec opts}) ; old syntax compatibility
         spec (:spec opts)
+        user-opts (select-keys spec [:width :height])
         spec (if (map? spec)
-               (assoc spec :usermeta {:embedOptions vega-opts})
+               (assoc spec :usermeta {:embedOptions (merge vega-opts user-opts)})
                spec)]
     [:> Vega (merge opts
                     {; All signals defined in the spec can be listened to via signalListeners
