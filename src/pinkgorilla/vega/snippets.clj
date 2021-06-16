@@ -14,6 +14,11 @@
               :id :vegalite-bar
               :filename "snippets/vegalite/bar.clj"})
 
+(add-snippet {:type :goldly-clj
+              :category :vega
+              :id :vegalite-bar-scroll
+              :filename "snippets/vegalite/bar_scroll.clj"})
+
 (add-snippet {:type :pinkie
               :category  :vega
               :id :vegalite-zoom
@@ -32,6 +37,11 @@
               :category :vega
               :id :vega-rect
               :filename "snippets/vega/rect.edn"})
+
+(add-snippet {:type :pinkie
+              :category :vega
+              :id :vega-zoom
+              :filename "snippets/vega/zoom.edn"})
 
 (add-snippet {:type  :goldly-clj
               :category  :vega

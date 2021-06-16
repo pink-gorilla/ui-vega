@@ -27,14 +27,15 @@
   (println "vega spec parse error: " args))
 
 (def signal-listeners
-  {:hover handle-hover
+  {;:hover handle-hover
    :tooltip  handle-tooltip
-   :on-parse-error handle-parse-error})
+   ;:on-parse-error handle-parse-error
+   })
 
 (defn vega [opts]
   (let [opts (if (:spec opts) opts {:spec opts}) ; old syntax compatibility
         spec (:spec opts)
-        user-opts (select-keys spec [:width :height])
+        user-opts (select-keys spec [:width :height :overflow])
         spec (if (map? spec)
                (assoc spec :usermeta {:embedOptions (merge vega-opts user-opts)})
                spec)]
