@@ -42,12 +42,12 @@
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
                                        [org.pinkgorilla/notebook "0.5.35"]
-                                       [org.pinkgorilla/ui-input "0.0.3"]
+                                       [org.pinkgorilla/ui-input "0.0.4"]
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.92"]
-                                     [org.pinkgorilla/ui-input "0.0.3"]
+                                     [org.pinkgorilla/goldly "0.2.96"]
+                                     [org.pinkgorilla/ui-input "0.0.4"]
                                      ]}
 
              :dev {:dependencies [[org.pinkgorilla/webly "0.3.8"] ; brings shadow
