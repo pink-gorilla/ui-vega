@@ -1,8 +1,7 @@
 {:name "ui-vega"
  :clj-require [[pinkgorilla.vega :refer [vega]]
                [pinkgorilla.vega.plot.core :as plot]
-               [pinkgorilla.grid :refer [grid]]
-               ]
+               [pinkgorilla.grid :refer [grid]]]
  :cljs-namespace [pinkgorilla.vega.pinkie ;cljs - pinkie
                   pinkgorilla.vega ;render wrapper
                   pinkgorilla.vega.plot.core ; plot
@@ -18,15 +17,14 @@
                            'compose pinkgorilla.vega.plot.core/compose
                            'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
                            'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
- ; css and pinkie not yet via loader
- :css {:components  {:ionslider {true ["ion-rangeslider/css/ion.rangeSlider.min.css"]}
-                     :tailsui {true ["tails-ui/dist/index.css"]}
-                     :gridlayout {true ["react-grid-layout/css/styles.css"
-                                        "react-resizable/css/styles.css"]}}
-       :config {:ionslider true
-                :tailsui false
-                :gridlayout true}}
+
+ :theme {:available  {}
+         :current {}}
+
+ ; modules and pinkie not yet via loader
  :pinkie {}
+ :modules {}
+
  :snippets [;vegalite
             {:type :pinkie
              :category :vega
