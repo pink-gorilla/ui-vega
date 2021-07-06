@@ -27,8 +27,10 @@
                       :display :label} state [:vega]]
           [:p "you selected: " (:vega @state)]
           (when-let [spec (get-in @state [:vega :id])]
-              [:p/vega {:spec spec}]
-              )]
+            ;[:div "spec:" (pr-str (:spec spec))]
+             [:p/vega {:spec spec}]
+              )
+          ]
    :fns {}}
   {:fns {}}))
 

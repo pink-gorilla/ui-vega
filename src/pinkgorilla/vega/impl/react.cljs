@@ -2,6 +2,7 @@
   (:require
    ["react-vega" :refer [VegaLite Vega]]
    ["vega-tooltip" :refer [Handler]]
+   [pinkie.box :refer [apply-style]]
    [pinkgorilla.vega :refer [vega-opts]]))
 
 (def tt-handler
@@ -36,8 +37,9 @@
   (let [opts (if (:spec opts) opts {:spec opts}) ; old syntax compatibility
         spec (:spec opts)
         user-opts (select-keys spec [:width :height :overflow])
-        spec (if (map? spec)
-               (assoc spec :usermeta {:embedOptions (merge vega-opts user-opts)})
+        spec (if (map? spec) ; spec could be a map or astring (url)
+               (-> (apply-style spec) ; box inject
+                   (assoc :usermeta {:embedOptions (merge vega-opts user-opts)}))
                spec)]
     [:> Vega (merge opts
                     {; All signals defined in the spec can be listened to via signalListeners
@@ -49,7 +51,6 @@
 
 (defn vegalite [opts]
   [vega (merge {:mode "vega-lite"} opts)])
-
 
 
 ; themes:

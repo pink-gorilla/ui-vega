@@ -31,7 +31,8 @@
 
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-time "0.15.2"] ;time axis creation 
-                 [com.andrewmcveigh/cljs-time "0.5.2"]]
+                 [com.andrewmcveigh/cljs-time "0.5.2"]
+                 [org.pinkgorilla/pinkie "0.3.7"]] ; box
   
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
@@ -46,8 +47,8 @@
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.2.96"]
-                                     [org.pinkgorilla/ui-input "0.0.4"]
+                                     [org.pinkgorilla/goldly "0.3.3"]
+                                     [org.pinkgorilla/ui-input "0.0.10"]
                                      ]}
 
              :dev {:dependencies [[org.pinkgorilla/webly "0.3.8"] ; brings shadow

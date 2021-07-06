@@ -2,14 +2,12 @@
  :clj-require [[pinkgorilla.vega :refer [vega]]
                [pinkgorilla.vega.plot.core :as plot]
                [pinkgorilla.grid :refer [grid]]]
- :cljs-namespace [pinkgorilla.vega.pinkie ;cljs - pinkie
-                  pinkgorilla.vega ;render wrapper
+ :theme {:available  {}
+         :current {}}
+ :cljs-namespace [pinkgorilla.vega ;render wrapper
                   pinkgorilla.vega.plot.core ; plot
                   pinkgorilla.grid ; grid
-                  ]
- :cljs-bindings {'vega pinkgorilla.vega/vega
-                 'vegalite pinkgorilla.vega/vegalite
-                 'grid pinkgorilla.grid/grid}
+                  pinkgorilla.vega.impl.react]
  :cljs-ns-bindings {'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
                            'bar-chart pinkgorilla.vega.plot.core/bar-chart
                            'histogram pinkgorilla.vega.plot.core/histogram
@@ -17,13 +15,14 @@
                            'compose pinkgorilla.vega.plot.core/compose
                            'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
                            'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
-
- :theme {:available  {}
-         :current {}}
-
- ; modules and pinkie not yet via loader
- :pinkie {}
- :modules {}
+ :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
+                 'vegalite pinkgorilla.vega.impl.react/vegalite
+                 ;'vega pinkgorilla.vega/vega
+                 ;'vegalite pinkgorilla.vega/vegalite
+                 'grid pinkgorilla.grid/grid}
+ :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
+          :p/vegalite pinkgorilla.vega.impl.react/vegalite}
+ :modules {} ; modules not yet via loader
 
  :snippets [;vegalite
             {:type :pinkie
