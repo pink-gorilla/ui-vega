@@ -22,8 +22,7 @@
                  'grid pinkgorilla.grid/grid}
  :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
           :p/vegalite pinkgorilla.vega.impl.react/vegalite}
- :modules {} ; modules not yet via loader
-
+ :lazy false
  :snippets [;vegalite
             {:type :pinkie
              :category :vega
@@ -64,7 +63,7 @@
                :category :vega-plot
                :id :vega-gorilla-plot
                :filename "snippets/vega.plot/gorilla_plot.clj"}
-            {:type :pinkie
+            #_{:type :pinkie
              :category :vega-plot
              :id :swing-chart
              :filename "snippets/vega.plot/swings.edn"}]}
