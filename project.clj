@@ -1,4 +1,4 @@
-(defproject org.pinkgorilla/ui-vega "0.0.12-SNAPSHOT"
+(defproject org.pinkgorilla/ui-vega "0.0.12"
   :description "Vega renderer and a simple data-driven plotting dsl."
   :url "https://github.com/pink-gorilla/ui-vega"
   :license {:name "MIT"}
