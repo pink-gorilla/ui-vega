@@ -22,7 +22,7 @@
                  'grid pinkgorilla.grid/grid}
  :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
           :p/vegalite pinkgorilla.vega.impl.react/vegalite}
- :lazy false
+ :lazy true
  :snippets [;vegalite
             {:type :pinkie
              :category :vega
@@ -59,10 +59,10 @@
              :filename "snippets/vega/combo.clj"}
             ;; plot
             ; broken
-            #_{:type :goldly-clj
-               :category :vega-plot
+            {:type :goldly-clj
+               :category :vega-dsl
                :id :vega-gorilla-plot
-               :filename "snippets/vega.plot/gorilla_plot.clj"}
+               :filename "snippets/vega.dsl/gorilla_plot.clj"}
             #_{:type :pinkie
              :category :vega-plot
              :id :swing-chart

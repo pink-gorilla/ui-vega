@@ -25,14 +25,14 @@
                    "target/node_modules"] ; vega specs json
 
   :managed-dependencies [; conflict resolution for notebook
-                         [borkdude/sci "0.2.5"]
-                         [com.fasterxml.jackson.core/jackson-core "2.12.3"]
+                         [borkdude/sci "0.2.6"]
+                         [com.fasterxml.jackson.core/jackson-core "2.12.4"]
                          [cljs-ajax "0.8.3"]]
 
   :dependencies [[org.clojure/clojure "1.10.3"]
                  [clj-time "0.15.2"] ;time axis creation 
                  [com.andrewmcveigh/cljs-time "0.5.2"]
-                 [org.pinkgorilla/pinkie "0.3.7"]] ; box
+                 [org.pinkgorilla/pinkie "0.3.11"]] ; box
   
   :profiles {:ci  {:target    :karma
                    :output-to "target/ci.js"}
@@ -42,16 +42,16 @@
                                    [com.taoensso/tufte "2.1.0"]]}
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
-                                       [org.pinkgorilla/notebook "0.5.35"]
-                                       [org.pinkgorilla/ui-input "0.0.4"]
+                                       [org.pinkgorilla/notebook "0.5.40"]
+                                       [org.pinkgorilla/ui-input "0.0.11"]
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.3.3"]
-                                     [org.pinkgorilla/ui-input "0.0.10"]
+                                     [org.pinkgorilla/goldly "0.3.14"]
+                                     [org.pinkgorilla/ui-input "0.0.11"]
                                      ]}
 
-             :dev {:dependencies [[org.pinkgorilla/webly "0.3.8"] ; brings shadow
+             :dev {:dependencies [[org.pinkgorilla/webly "0.3.44"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]

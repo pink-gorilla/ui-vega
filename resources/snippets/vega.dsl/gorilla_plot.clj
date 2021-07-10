@@ -34,7 +34,7 @@
                           :opacity 0.5]
            ]]] ; sin is a symbol know to sci compiler
    :fns {}}
-  {:fns {}}))
+  ))
 
 
  #_[:p/composeplot
