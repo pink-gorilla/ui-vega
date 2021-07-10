@@ -7,11 +7,11 @@
 
 (def tt-handler
   (let [h (Handler.)]
-    (println "tt handler: " h)
+    ;(println "tt handler: " h)
     h))
 (def tt-call
   (let [c (. tt-handler -call)]
-    (println "tt call: " c)
+    ;(println "tt call: " c)
     c))
 ; tooltip= {new Handler () .call}
 
