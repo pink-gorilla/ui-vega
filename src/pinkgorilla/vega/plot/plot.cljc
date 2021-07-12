@@ -8,35 +8,29 @@
 
 ;; Series' are given random names so that plots can be composed
 ;; Thanks: https://gist.github.com/gorsuch/1418850
-
-
 (defn merge-with-meta [& data]
   (let [metas (map meta data)
         merged-meta (apply merge metas)]
     (with-meta (apply merge data) merged-meta)))
 
-(comment
-  (meta (merge-with-meta
-         ^:R {:a 1 :b 2}
-         ^:r {:c 3 :d 4})))
-
 (defn add-indices [d] (map vector (range (count d)) d))
 
 (defn list-plot
   "Function for plotting list data."
-  [data & {:keys [joined plot-size aspect-ratio plot-range symbol-size opacity series-name #_symbol ; keys with default values
-                  color x-title y-title] ; keys  without default values
-           :or   {joined       false
-                  plot-size    400
-                  aspect-ratio 1.618
-                  plot-range   [:all :all]
-                  symbol-size  70
-                  opacity      1
-                  series-name (gen-uuid)
+  [{:keys [data plot-range series-name
+           joined
+           plot-size aspect-ratio symbol-size opacity  ; keys with default values
+           color x-title y-title] ; keys  without default values
+    :or   {joined       false
+           plot-size    400
+           aspect-ratio 1.618
+           plot-range   [:all :all]
+           symbol-size  70
+           opacity      1
+           series-name (gen-uuid)
                   ;;symbol       "circle"
-                  }}]
-  (let [;series-name (gen-uuid)
-        plot-data (if (sequential? (first data))
+           }}]
+  (let [plot-data (if (sequential? (first data))
                     data
                     (add-indices data))]
     (merge-with-meta
@@ -59,21 +53,26 @@
 
 (defn plot
   "Function for plotting functions of a single variable."
-  [func [xmin xmax] & {:keys [plot-points]
-                       :or   {plot-points 100.0}
-                       :as   opts}]
-  (let [xs (range xmin xmax (float (/ (- xmax xmin) plot-points)))
+  [{:keys [func window plot-points]
+    :or   {plot-points 100.0}
+    :as   opts}]
+  (let [[xmin xmax] window
+        opts (merge {} opts)
+        xs (range xmin xmax (float (/ (- xmax xmin) plot-points)))
         plot-data (map #(vector % (func %)) xs)]
     ;; surely there's a function to do this!
-    (apply (partial list-plot plot-data) (mapcat identity (merge {:joined true} opts)))))
+    (println "data" plot-data)
+    (list-plot (merge opts {:data plot-data
+                            :joined true}))))
 
 (defn bar-chart
-  [categories values & {:keys [plot-size aspect-ratio plot-range opacity ; keys with defaults
-                               color x-title y-title]
-                        :or   {plot-size    400
-                               aspect-ratio 1.618
-                               plot-range   [:all :all]
-                               opacity      1}}]
+  [{:keys [categories values
+           plot-size aspect-ratio plot-range opacity ; keys with defaults
+           color x-title y-title]
+    :or   {plot-size    400
+           aspect-ratio 1.618
+           plot-range   [:all :all]
+           opacity      1}}]
   (let [series-name (gen-uuid)]
     (merge-with-meta
      (container-vega plot-size aspect-ratio)
@@ -84,19 +83,22 @@
 
 (defn histogram
   "Plot the histogram of a sample."
-  [data & {:keys [plot-range bins normalize normalise plot-size aspect-ratio color opacity fill-opacity x-title y-title]
-           :or   {plot-range   [:all :all]
-                  bins         :automatic
-                  plot-size    400
-                  aspect-ratio 1.618
-                  opacity      1
-                  fill-opacity 0.4}}]
+  [{:keys [data plot-range
+           bins normalize normalise
+           plot-size aspect-ratio color opacity fill-opacity x-title y-title]
+    :or   {plot-range   [:all :all]
+           bins         :automatic
+           plot-size    400
+           aspect-ratio 1.618
+           opacity      1
+           fill-opacity 0.4}}]
   (let [bin-range-spec (first plot-range)
         range-min (if (= bin-range-spec :all) (apply min data) (first bin-range-spec))
         range-max-raw (if (= bin-range-spec :all) (apply max data) (second bin-range-spec))
         ;; ensure the largest point is included
         ;; TODO: does this always work? With Clojure numeric types?
-        range-max (+ range-max-raw (Math/ulp (double range-max-raw)))
+        range-max (+ range-max-raw ;(Math/ulp 
+                     (double range-max-raw));)
         points-in-range (util/count-in-range data range-min range-max)
         ;; if bins :automatic then use the Sturges rule (it's simple)
         num-bins (if (= bins :automatic) (Math/ceil (+ 1 (/ (Math/log points-in-range) (Math/log 2)))) bins)
@@ -142,3 +144,45 @@
      ; merge data and marks
      :data    data
      :marks   marks}))
+
+(comment
+
+  (meta (merge-with-meta
+         ^:R {:a 1 :b 2}
+         ^:r {:c 3 :d 4}))
+
+  (def d [1 3 5 7 9 5 4 6 9 8 3 5 6])
+
+  (list-plot {:data d})
+
+  (list-plot {:data d
+              :plot-range [:all :all]
+              :joined true
+              :plot-size 400
+              :aspect-ratio 1.6
+              :opacity 0.5})
+
+  (bar-chart {:categories (range (count d))
+              :values d})
+
+  (histogram {:data d})
+
+  (compose
+   [list-plot {:data d}]
+   [list-plot {:data d
+               :plot-range [:all :all]
+               :joined true
+               :plot-size 400
+               :aspect-ratio 1.6
+               :opacity 0.5}])
+
+  #?(:clj
+     (defn sin [x] (Math/sin x)))
+
+  (sin 8)
+
+  (plot {:func sin
+         :window [0 100]})
+
+ ; 
+  )

@@ -43,15 +43,15 @@
 
              :notebook {:dependencies [[org.clojure/clojure "1.10.3"]
                                        [org.pinkgorilla/notebook "0.5.40"]
-                                       [org.pinkgorilla/ui-input "0.0.11"]
+                                       [org.pinkgorilla/ui-input "0.0.12"]
                                        ]}
 
              :goldly {:dependencies [[org.clojure/clojure "1.10.3"]
-                                     [org.pinkgorilla/goldly "0.3.14"]
-                                     [org.pinkgorilla/ui-input "0.0.11"]
+                                     [org.pinkgorilla/goldly "0.3.22"]
+                                     [org.pinkgorilla/ui-input "0.0.12"]
                                      ]}
 
-             :dev {:dependencies [[org.pinkgorilla/webly "0.3.44"] ; brings shadow
+             :dev {:dependencies [[org.pinkgorilla/webly "0.3.45"] ; brings shadow
                                   [clj-kondo "2021.04.23"]]
                    :plugins      [[lein-cljfmt "0.6.6"]
                                   [lein-cloverage "1.1.2"]

@@ -1,2 +1,6 @@
-{:goldly {:lazy true}}
+{:goldly {:lazy true
+          :routes {"" :test/histogram
+                   }
+          
+          }}
 

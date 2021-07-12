@@ -17,8 +17,6 @@
                            'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
  :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
                  'vegalite pinkgorilla.vega.impl.react/vegalite
-                 ;'vega pinkgorilla.vega/vega
-                 ;'vegalite pinkgorilla.vega/vegalite
                  'grid pinkgorilla.grid/grid}
  :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
           :p/vegalite pinkgorilla.vega.impl.react/vegalite}
