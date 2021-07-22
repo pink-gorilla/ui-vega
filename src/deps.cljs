@@ -10,8 +10,8 @@
   ;"vega-embed" "6.18.2"
   "react-vega" "^7.4.3" ; react-vega brings embed
 ;  "vega-loader-arrow" "0.0.10"
-  
-   "prop-types" "^15.5.7" ; to compile vega in ci
+
+  "prop-types" "^15.5.7" ; to compile vega in ci
 
   ; shadow cljs version needs to match the one in webly/deps.edn
   "shadow-cljs" "2.14.5" ; buffer polyfill fix
