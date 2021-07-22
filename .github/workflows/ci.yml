@@ -69,28 +69,3 @@ jobs:
       # Could not transfer metadata foo:bar/maven-metadata.xml from/to releases (https://clojars.org/repo): Read timed out
       # Default 10000 not enough for us
       # export LEIN_JVM_OPTS="-Dmaven.wagon.rto=90000"
-
-    #- name: Lint
-    #  run: lein clj-kondo --config clj-kondo.edn --lint .
-    - name: Install dependencies
-      run: |
-        lein deps
-        lein notebook npm-install
-        ./scripts/copy_res.sh 
-    - name: Run tests
-      run: |
-        lein test
-      #  lein cloverage
-    - name: Release
-      if: success()
-      # if: github.event_name == 'push'
-      env:
-        RELEASE_USERNAME: ${{ secrets.ReleaseUsername }}
-        RELEASE_PASSWORD: ${{ secrets.ReleasePassword }}
-        CODECOV_TOKEN: ${{ secrets.CodecovToken }}
-      run: |
-        git config --global user.email "ci@pinkgorilla.org"
-        git config --global user.name "CI/CD"
-        rm src/goldly_bindings_generated.cljs
-        lein release
-        bash <(curl -s https://codecov.io/bash)
