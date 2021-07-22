@@ -19,10 +19,9 @@
  :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
                  'vegalite pinkgorilla.vega.impl.react/vegalite
                  'grid pinkgorilla.grid/grid}
- :pinkie {;:p/vega pinkgorilla.vega.impl.react/vega
-          ;:p/vegalite pinkgorilla.vega.impl.react/vegalite
-          }
- :lazy false
+ :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
+          :p/vegalite pinkgorilla.vega.impl.react/vegalite}
+ :lazy true
  :snippets [;vegalite
             {:type :pinkie
              :category :vega
@@ -64,10 +63,10 @@
             ;; plot
             ; broken
             {:type :goldly-clj
-               :category :vega-dsl
-               :id :vega-gorilla-plot
-               :filename "snippets/vega.dsl/gorilla_plot.clj"}
+             :category :vega-dsl
+             :id :vega-gorilla-plot
+             :filename "snippets/vega.dsl/gorilla_plot.clj"}
             #_{:type :pinkie
-             :category :vega-plot
-             :id :swing-chart
-             :filename "snippets/vega.plot/swings.edn"}]}
+               :category :vega-plot
+               :id :swing-chart
+               :filename "snippets/vega.plot/swings.edn"}]}

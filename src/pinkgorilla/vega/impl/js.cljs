@@ -14,7 +14,6 @@
 
 ; for vega embedding options see:  https://github.com/vega/vega-embed
 
-
 (def vega-options {:actions false
                    :defaultStyle true})
 
@@ -27,10 +26,8 @@
                 (.appendChild dom-node
                               (.createTextNode js/document (str "Vega Spec error: " em)))))))
 
-
 ; [cljsjs.vega-tooltip]
 ; https://github.com/sorenmacbeth/vizard/blob/master/src/cljs/vizard/core.cljs
-
 
 #_(defn parse-vl-spec [spec elem]
     (when spec

@@ -24,9 +24,7 @@
                                  :strokeWidth   {:value 2}
                                  :strokeOpacity {:value opacity}}}}]})
 
-
 ;;; Bar charts
-
 
 (defn bar-chart-marks
   [data-key color opacity]
@@ -40,9 +38,7 @@
                                   :opacity {:value opacity}}
                          :hover  {:fill {:value "#FF29D2"}}}}]})
 
-
 ;;; Histograms
-
 
 (defn histogram-marks
   [data-key color opacity fillOpacity]

@@ -5,6 +5,5 @@
 
 ; make sure it compiles
 
-
 (deftest pinkie-compile
   (is (= 0 0)))

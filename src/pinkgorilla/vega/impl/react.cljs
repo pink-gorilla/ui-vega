@@ -6,18 +6,16 @@
 
    ; arrow format
    ["vega" :refer [formats]]
-   ["apache-arrow" :as aa]
-   ;["./apache-arrow.js" :as aa]
-   ["vega-loader-arrow" :as arrow]
+   ;["apache-arrow" :as aa]
+   ["./apache-arrow.js" :as aa]
+   ;["vega-loader-arrow" :as arrow]
    ;["flatbuffers" :as fb]
-  
-   ;["./vega-loader-arrow.js" :as arrow]
+   ["./vega-loader-arrow.js" :as arrow]
 
    [pinkie.box :refer [apply-style]]
    [pinkgorilla.vega :refer [vega-opts]]))
 
 ;(println "fb: " fb)
-
 
 (def arrow-needs-load (r/atom true))
 (defn ensure-arrow! []
@@ -26,7 +24,6 @@
     (reset! arrow-needs-load false)
 ; register arrow reader under type 'arrow'
     (formats "arrow" arrow)))
-
 
 (def tt-handler
   (let [h (Handler.)]
@@ -75,7 +72,6 @@
 
 (defn vegalite [opts]
   [vega (merge {:mode "vega-lite"} opts)])
-
 
 ; themes:
 ; https://observablehq.com/@vega/vega-themes-demo
