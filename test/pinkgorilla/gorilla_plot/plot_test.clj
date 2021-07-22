@@ -1,7 +1,9 @@
 (ns pinkgorilla.gorilla-plot.plot-test
   (:require
-   #?(:cljs [cljs.test :refer-macros [deftest is]]
-      :clj  [clojure.test :refer [deftest is]])
+   ;#?(:cljs [cljs.test :refer-macros [deftest is]]
+   ;   :clj  
+   [clojure.test :refer [deftest is]]
+   ;)
    [pinkgorilla.vega.plot.core :refer [list-plot]]))
 
 (def d

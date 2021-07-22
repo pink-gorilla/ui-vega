@@ -40,11 +40,19 @@
   {:main-opts ["-m" "garamond.main"]
    :extra-deps {com.workframe/garamond {:mvn/version "0.4.0"}}}
 
+  :test
+  {:extra-paths ["test"]
+   :extra-deps {io.github.cognitect-labs/test-runner
+                {:git/url "https://github.com/cognitect-labs/test-runner.git"
+                 :sha "4e7e1c0dfd5291fa2134df052443dc29695d8cbe"}}
+   :main-opts ["-m" "cognitect.test-runner"]
+   :exec-fn cognitect.test-runner.api/test}
+
   ; demo ui
 
   :ci {:extra-paths ["test"]
-       :extra-deps  {org.pinkgorilla/webly {:mvn/version "0.3.49"}
-                     org.pinkgorilla/pinkie {:mvn/version "0.3.11"}}
+       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.36"
+                                             :exclusions [org.pinkgorilla/ui-vega]}}
        :exec-fn webly.user.app.app/webly-run
        :exec-args {:profile "ci"
                    :config nil}}

@@ -29,6 +29,13 @@ Run `clojure -X:notebook watch` to edit example notebooks.
 clojure -M:perf
 ```
 
+## Unit test
+
+```
+clojure -M:test
+./scripts/test-cljs.sh
+```
+
 **vega problems**
 
 If there are problems in using vega with errors to "buffer" then `npm install shadow-cljs --save` might fix it. thheller: both buffer and process are polyfills packages that shadow-cljs will provide ... the npm package is mostly the for CLI stuff but also brings in some extra npm packages
