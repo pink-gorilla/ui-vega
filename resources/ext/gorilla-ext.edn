@@ -14,18 +14,24 @@
                            'plot pinkgorilla.vega.plot.core/plot
                            'compose pinkgorilla.vega.plot.core/compose
                            'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
-                           'multi-plot pinkgorilla.vega.plot.core/multi-plot}}
+                          ; 'multi-plot pinkgorilla.vega.plot.core/multi-plot
+                           }}
  :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
                  'vegalite pinkgorilla.vega.impl.react/vegalite
                  'grid pinkgorilla.grid/grid}
- :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
-          :p/vegalite pinkgorilla.vega.impl.react/vegalite}
- :lazy true
+ :pinkie {;:p/vega pinkgorilla.vega.impl.react/vega
+          ;:p/vegalite pinkgorilla.vega.impl.react/vegalite
+          }
+ :lazy false
  :snippets [;vegalite
             {:type :pinkie
              :category :vega
              :id :vegalite-point
              :filename "snippets/vegalite/point.edn"}
+            {:type :pinkie
+             :category :vega
+             :id :vegalite-arrow
+             :filename "snippets/vegalite/arrow.edn"}
             {:type :goldly-clj
              :category :vega
              :id :vegalite-bar

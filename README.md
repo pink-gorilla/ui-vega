@@ -13,9 +13,9 @@ and is a more condensed specification with less features.
 
 ## Demos  (port : 8000)
 
-Run `lein goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
+Run `clojure -X:goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
 
-Run `lein notebook watch` to edit example notebooks.
+Run `clojure -X:notebook watch` to edit example notebooks.
 
 ## Implementation
 
@@ -26,7 +26,7 @@ Run `lein notebook watch` to edit example notebooks.
 ## Performance test
 
 ```
-lein perf
+clojure -M:perf
 ```
 
 **vega problems**

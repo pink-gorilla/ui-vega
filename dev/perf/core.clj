@@ -10,7 +10,7 @@
         ;spec (list-plot d)
         ;spec-json (json/generate-string spec)
 
-(def spec-json (slurp "notebooks/stacked-bar.vg.json"))
+(def spec-json (slurp "dev/perf/stacked-bar.vg.json"))
 (println "spec: " spec-json)
 
 

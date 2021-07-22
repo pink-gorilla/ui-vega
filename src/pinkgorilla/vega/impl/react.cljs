@@ -1,9 +1,32 @@
 (ns pinkgorilla.vega.impl.react
   (:require
-   ["react-vega" :refer [VegaLite Vega]]
+   [reagent.core :as r]
+   ["react-vega" :refer [#_VegaLite Vega]]
    ["vega-tooltip" :refer [Handler]]
+
+   ; arrow format
+   ["vega" :refer [formats]]
+   ["apache-arrow" :as aa]
+   ;["./apache-arrow.js" :as aa]
+   ["vega-loader-arrow" :as arrow]
+   ;["flatbuffers" :as fb]
+  
+   ;["./vega-loader-arrow.js" :as arrow]
+
    [pinkie.box :refer [apply-style]]
    [pinkgorilla.vega :refer [vega-opts]]))
+
+;(println "fb: " fb)
+
+
+(def arrow-needs-load (r/atom true))
+(defn ensure-arrow! []
+  (when @arrow-needs-load
+    (println "loading arrow...")
+    (reset! arrow-needs-load false)
+; register arrow reader under type 'arrow'
+    (formats "arrow" arrow)))
+
 
 (def tt-handler
   (let [h (Handler.)]
@@ -34,6 +57,7 @@
    })
 
 (defn vega [opts]
+  (ensure-arrow!)
   (let [opts (if (:spec opts) opts {:spec opts}) ; old syntax compatibility
         spec (:spec opts)
         user-opts (select-keys spec [:width :height :overflow])

@@ -1,6 +1,4 @@
 {:goldly {:lazy true
-          :routes {"" :test/histogram
-                   }
-          
-          }}
+          :autoload-dir "goldly/cljs"  ; to load cljs files to repl state
+          :routes {"" :test/histogram}}}
 
