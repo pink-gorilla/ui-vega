@@ -33,7 +33,7 @@ jobs:
     - name: test-clj
       run: clojure -M:test
     - name: test-cljs
-      run: ./script/test-cljs.sh
+      run: ./scripts/test-cljs.sh
     - name: copy res
       run: |
         ./scripts/npm_install.sh 
