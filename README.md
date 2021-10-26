@@ -13,9 +13,9 @@ and is a more condensed specification with less features.
 
 ## Demos  (port : 8000)
 
-Run `clojure -X:goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
+Run `clj -X:goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
 
-Run `clojure -X:notebook watch` to edit example notebooks.
+Run `clj -X:notebook watch` to edit example notebooks.
 
 ## Implementation
 
@@ -26,13 +26,13 @@ Run `clojure -X:notebook watch` to edit example notebooks.
 ## Performance test
 
 ```
-clojure -M:perf
+clj -M:perf
 ```
 
 ## Unit test
 
 ```
-clojure -M:test
+clj -M:test
 ./scripts/test-cljs.sh
 ```
 

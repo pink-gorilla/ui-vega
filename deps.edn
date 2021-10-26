@@ -51,7 +51,7 @@
   ; demo ui
 
   :ci {:extra-paths ["test"]
-       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.36"
+       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.38"
                                              :exclusions [org.pinkgorilla/ui-vega]}}
        :exec-fn webly.user.app.app/webly-run
        :exec-args {:profile "ci"
@@ -72,7 +72,7 @@
 
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.36"
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.38"
                                         :exclusions [org.pinkgorilla/ui-vega]}}
    :exec-fn goldly-server.app/goldly-server-run!
    :exec-args {:profile "watch"
