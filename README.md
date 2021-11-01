@@ -48,3 +48,8 @@ you can fix this easily by bumping
 
 With UNPKG you can see output of npm builds. Useful for debugging.
 https://unpkg.com/browse/vega-embed@6.19.1/build/vega-embed.js
+
+vega-embed iterator.js bug:
+- use vega-embed 6.18
+- include an iterator.js file with the contents module.exports = function() {};. https://shadow-cljs.github.io/docs/UsersGuide.html#_patching_libraries might be helpful.
+
