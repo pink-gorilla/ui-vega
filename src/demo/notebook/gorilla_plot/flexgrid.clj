@@ -1,25 +1,11 @@
-;; gorilla-repl.fileformat = 2
-
-;; @@ [meta]
-{:tags "clj,plot,sample", :name "", :tagline "gorilla plots combined with flexgrid", :id :1d85c643-48e1-428f-8cf0-562d6405a558}
-
-;; @@
-
 ;; **
 ;;; # Gorilla Plots combined with FlexGrid
 ;; **
 
-;; @@ [clj]
-(ns absolute-windy
-  (:require 
-    [pinkgorilla.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
-;; @@
-;; ->
-;;; 
-;; <-
-;; =>
-;;; [["^ ","~:type","~:hiccup","~:content",["~:span",["^ ","~:class","clj-nil"],"nil"]]]
-;; <=
+
+(ns demo.notebook.gorilla-plot.flexgrid
+  (:require
+   [pinkgorilla.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
 
 ;; @@ [clj]
 (def d
@@ -53,13 +39,12 @@ p
 ;; <=
 
 ;; @@ [clj]
-^:R [:div {:style {:display "flex" 
+^:R [:div {:style {:display "flex"
                    ;:min-height "70vh" 
-                   :align-items "left" 
-                   :flex-wrap "wrap" 
+                   :align-items "left"
+                   :flex-wrap "wrap"
                    :justify-content "left"}}
-     (repeat 20 p)
-     ]
+     (repeat 20 p)]
 ;; @@
 ;; ->
 ;;; 

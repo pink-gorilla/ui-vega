@@ -7,7 +7,7 @@
   "vega-lite" "^4.17.0"
   "vega-tooltip" "^0.25.1"
 
-  ;"vega-embed" "6.18.2"
+  "vega-embed" "6.18.2" ; needs to be 6.18, as 6.19 breaks build: https://github.com/vega/vega-embed/issues/780
   "react-vega" "^7.4.3" ; react-vega brings embed
 ;  "vega-loader-arrow" "0.0.10"
 

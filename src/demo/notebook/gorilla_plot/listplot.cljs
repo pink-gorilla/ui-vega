@@ -13,18 +13,17 @@
    (plot (fn [x] (* x (Math/pow (Math/sin x) 2))) [0 10]))
 
 #_(def list-plot
-  [:div
-   [:h1 "Vega charts"]
-   [:h4 "generated via gorilla-plot dsl"]
-   [:div.flex.flex-row.content-between
-    [:div.flex.flex-col.justify-start
-     [plot/list-plot d :joined true
-      :plot-size 400
-      :color "red"
-      :aspect-ratio 1.6
-      :plot-range [:all :all]
-      :opacity 0.5]]]])
-
+    [:div
+     [:h1 "Vega charts"]
+     [:h4 "generated via gorilla-plot dsl"]
+     [:div.flex.flex-row.content-between
+      [:div.flex.flex-col.justify-start
+       [plot/list-plot d :joined true
+        :plot-size 400
+        :color "red"
+        :aspect-ratio 1.6
+        :plot-range [:all :all]
+        :opacity 0.5]]]])
 
 (defn histogram-page [h]
   [:div.grid.grid-cols-3
@@ -39,20 +38,18 @@
    [plot/plot {:func sin
                :window [0 100]}]
    [plot/bar-chart {:categories (range (count d))
-                    :values d}] 
+                    :values d}]
    [plot/histogram {:data d}]
    (plot/compose
-      (plot/list-plot {:data d})
-      (plot/list-plot {:data d
-             :plot-range [:all :all]
-             :joined true
-             :plot-size 400
-             :aspect-ratio 1.6
-             :opacity 0.5}))
+    (plot/list-plot {:data d})
+    (plot/list-plot {:data d
+                     :plot-range [:all :all]
+                     :joined true
+                     :plot-size 400
+                     :aspect-ratio 1.6
+                     :opacity 0.5}))
     ;)
    ])
-
-
 (add-page histogram-page :test/histogram)
 
 #_[:p/composeplot

@@ -1,9 +1,0 @@
-{:goldly {:enabled true
-          }
- :explorer {:client {:repositories [{:name "local"  :url "/api/explorer" :save true}
-                                    #_{:name "public" :url "https://raw.githubusercontent.com/pink-gorilla/gorilla-explore/master/resources/list.json"}]}
-            :server {:resource-root-path "notebooks-none"
-                     :roots
-                     {:vega "./resources/notebooks"}}}
- 
- }

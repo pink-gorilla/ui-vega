@@ -1,5 +1,5 @@
 #!/bin/sh
 
-clojure -X:ci :profile '"npm-install"'
-clojure -X:ci 
+clj -X:ci :profile '"npm-install"'
+clj -X:ci 
 npm test

@@ -25,7 +25,10 @@
  ; https://github.com/clj-kondo/clj-kondo/blob/master/doc/jvm.md
   :lint
   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
-   :main-opts ["-m" "clj-kondo.main" "--lint" "src"]}
+   :main-opts ["-m" "clj-kondo.main" 
+               "--lint" "src"
+               "--config" "cljkondo.edn"
+               ]}
 
   :outdated
   {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
@@ -51,7 +54,7 @@
   ; demo ui
 
   :ci {:extra-paths ["test"]
-       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.38"
+       :extra-deps  {org.pinkgorilla/goldly {:mvn/version "0.3.47"
                                              :exclusions [org.pinkgorilla/ui-vega]}}
        :exec-fn webly.user.app.app/webly-run
        :exec-args {:profile "ci"
@@ -62,17 +65,10 @@
                       cheshire/cheshire {:mvn/version "5.10.1"}
                       com.taoensso/tufte {:mvn/version "2.2.0"}}
          :main-opts ["-m" "perf.core"]}
-
-  :notebook
-  {:extra-deps {org.pinkgorilla/notebook {:mvn/version "0.5.40"
-                                          :exclusions [org.pinkgorilla/ui-vega]}
-                org.pinkgorilla/ui-input {:mvn/version "0.0.13"}}
-   :exec-fn pinkgorilla.notebook-ui.app.app/run
-   :exec-args {:config "notebook-plot.edn"}}
-
+ 
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.38"
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.47"
                                         :exclusions [org.pinkgorilla/ui-vega]}}
    :exec-fn goldly-server.app/goldly-server-run!
    :exec-args {:profile "watch"

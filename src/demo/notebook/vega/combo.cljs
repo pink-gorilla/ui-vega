@@ -1,7 +1,6 @@
-(require '[goldly.system :as goldly])
-(require '[goldly.runner :refer [system-start!]])
+(ns demo.notebook.vega.zoom)
 
-(goldly/def-ui demo-charts
+(def demo-charts
   [{:label "bar-chart"
     :id "/r/vega/bar-chart.vg.json"}
    {:label "population-pyramid" :id "/r/vega/population-pyramid.vg.json"}
@@ -15,25 +14,12 @@
    {:label "box plot" :id "/r/vega/box-plot.vg.json"}
    {:label "contour" :id "/r/vega/contour-plot.vg.json"}])
 
-
-(system-start!
- (goldly/system
-  {:id :vega-combo
-   :state {:vega nil}
-   :html [:div
-          [:h1 "select the sample vega plot you want to see"]
-          [:p/select {:nav? false
-                      :items demo-charts
-                      :display :label} state [:vega]]
-          [:p "you selected: " (:vega @state)]
-          (when-let [spec (get-in @state [:vega :id])]
+[:div
+ [:h1 "select the sample vega plot you want to see"]
+ [:p/select {:nav? false
+             :items demo-charts
+             :display :label} state [:vega]]
+ [:p "you selected: " (:vega @state)]
+ (when-let [spec (get-in @state [:vega :id])]
             ;[:div "spec:" (pr-str (:spec spec))]
-             [:p/vega {:spec spec}]
-              )
-          ]
-   :fns {}}
-  {:fns {}}))
-
-
-
-
+   [:p/vega {:spec spec}])]

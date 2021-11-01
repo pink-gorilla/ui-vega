@@ -15,7 +15,6 @@ and is a more condensed specification with less features.
 
 Run `clj -X:goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
 
-Run `clj -X:notebook watch` to edit example notebooks.
 
 ## Implementation
 
@@ -46,3 +45,6 @@ you do not need to worry about process or buffer at all
 you can fix this easily by bumping 
 :compiler-options {:output-feature-set :es6} or whatever language level is appropriate
 :es8 is good if you have bunch of async/await code in libs
+
+With UNPKG you can see output of npm builds. Useful for debugging.
+https://unpkg.com/browse/vega-embed@6.19.1/build/vega-embed.js
