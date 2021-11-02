@@ -1,5 +1,6 @@
-(ns demo.notebook.vega.rect)
+(ns demo.notebook.vega-rect)
 
+^:fh
 [:p/vega
  {:spec {:$schema "https://vega.github.io/schema/vega/v5.json"
          :padding {:left 5, :right 5, :top 5, :bottom 5}

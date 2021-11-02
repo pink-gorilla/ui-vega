@@ -50,7 +50,7 @@
                      :opacity 0.5}))
     ;)
    ])
-(add-page histogram-page :test/histogram)
+(add-page histogram-page :vegademo/histogram)
 
 #_[:p/composeplot
    [:p/listplot d]

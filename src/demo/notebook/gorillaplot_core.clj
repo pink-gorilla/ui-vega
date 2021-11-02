@@ -1,5 +1,5 @@
 
-(ns demo.notebook.gorilla-plot.plot
+(ns demo.notebook.gorillaplot.core
   (:require
    [pinkgorilla.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
 

@@ -1,5 +1,6 @@
-(ns demo.notebook.vega.zoom)
+(ns demo.notebook.vega-zoom)
 
+^:fh
 [:p/vega
  {:spec {:description
          "An interactive scatter plot example supporting pan and zoom."

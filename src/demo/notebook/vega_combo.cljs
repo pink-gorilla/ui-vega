@@ -1,4 +1,4 @@
-(ns demo.notebook.vega.zoom)
+(ns demo.notebook.vega-combo)
 
 (def demo-charts
   [{:label "bar-chart"

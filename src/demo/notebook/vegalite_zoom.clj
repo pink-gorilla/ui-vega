@@ -1,3 +1,6 @@
+(ns demo.notebook.vegalite-zoom)
+
+^:fh
 [:p/vegalite
  {:spec {:data {:url "/r/data/sp500.csv"}
          :vconcat

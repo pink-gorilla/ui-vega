@@ -25,10 +25,9 @@
  ; https://github.com/clj-kondo/clj-kondo/blob/master/doc/jvm.md
   :lint
   {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
-   :main-opts ["-m" "clj-kondo.main" 
+   :main-opts ["-m" "clj-kondo.main"
                "--lint" "src"
-               "--config" "cljkondo.edn"
-               ]}
+               "--config" "cljkondo.edn"]}
 
   :outdated
   {:extra-deps {com.github.liquidz/antq {:mvn/version "RELEASE"}}
@@ -65,14 +64,21 @@
                       cheshire/cheshire {:mvn/version "5.10.1"}
                       com.taoensso/tufte {:mvn/version "2.2.0"}}
          :main-opts ["-m" "perf.core"]}
- 
 
-  :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.47"
+
+  :goldly ; this is what recompiles it all...
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.3.59"
                                         :exclusions [org.pinkgorilla/ui-vega]}}
-   :exec-fn goldly-server.app/goldly-server-run!
-   :exec-args {:profile "watch"
+   :exec-fn goldly.app/goldly-server-run!
+   :exec-args {:profile "watch2" ; watch2 does not bring tenx
                :config "goldly-plot.edn"}}
+
+  :goldly-docs ; run this when you do not want to compile anything.
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.3.59"}}
+   :exec-fn goldly.app/goldly-server-run!
+   :exec-args {:profile "jetty"
+               :config "goldly-plot.edn"}}
+
 
 ;
   }}

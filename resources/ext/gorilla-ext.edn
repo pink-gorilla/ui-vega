@@ -1,13 +1,15 @@
 {:name "ui-vega"
- :clj-require [[pinkgorilla.vega :refer [vega]]
-               [pinkgorilla.vega.plot.core :as plot]
-               [pinkgorilla.grid :refer [grid]]]
- :theme {:available  {}
+ ; compile-time
+ :lazy true
+ :theme {:available {}
          :current {}}
  :cljs-namespace [pinkgorilla.vega ;render wrapper
                   pinkgorilla.vega.plot.core ; plot
                   pinkgorilla.grid ; grid
                   pinkgorilla.vega.impl.react]
+ :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
+                 'vegalite pinkgorilla.vega.impl.react/vegalite
+                 'grid pinkgorilla.grid/grid}
  :cljs-ns-bindings {'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
                            'bar-chart pinkgorilla.vega.plot.core/bar-chart
                            'histogram pinkgorilla.vega.plot.core/histogram
@@ -16,9 +18,13 @@
                            'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
                           ; 'multi-plot pinkgorilla.vega.plot.core/multi-plot
                            }}
- :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
-                 'vegalite pinkgorilla.vega.impl.react/vegalite
-                 'grid pinkgorilla.grid/grid}
  :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
           :p/vegalite pinkgorilla.vega.impl.react/vegalite}
- :lazy true}
+
+ ;run-time
+ :clj-require [[pinkgorilla.vega :refer [vega]]
+               [pinkgorilla.vega.plot.core :as plot]
+               [pinkgorilla.grid :refer [grid]]]
+
+ ;
+ }

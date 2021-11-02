@@ -1,3 +1,6 @@
+(ns demo.notebook.vegalite-multiline)
+
+^:fh
 [:p/vegalite
  {:width 1400
   :height 600

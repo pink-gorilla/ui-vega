@@ -1,3 +1,6 @@
+(ns demo.notebook.vegalite-arrow)
+
+^:fh
 [:p/vegalite
  {:width 800
   :height 600

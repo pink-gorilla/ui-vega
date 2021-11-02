@@ -1,3 +1,9 @@
+(ns demo.notebook.vegalite-bar)
+
+(def data
+  {:table [{:a "A" :b 28} {:a "B" :b 55} {:a "C" :b 43} {:a "D" :b 91}
+           {:a "E" :b 81} {:a "F" :b 53} {:a "G" :b 19} {:a "H" :b 87}
+           {:a "I" :b 52} {:a "J" :b 127}]})
 
 (def bar
   {;:$schema "https://vega.github.io/schema/vega-lite/v4.json"
@@ -9,11 +15,7 @@
               :y {:field "b" :type "quantitative"}}
    :data {:name "table"}})
 
-(def-ui data
-  {:table [{:a "A" :b 28} {:a "B" :b 55} {:a "C" :b 43} {:a "D" :b 91}
-           {:a "E" :b 81} {:a "F" :b 53} {:a "G" :b 19} {:a "H" :b 87}
-           {:a "I" :b 52} {:a "J" :b 127}]})
-
+^:fh
 [:p/vegalite {:spec bar :data data}]
 
 
