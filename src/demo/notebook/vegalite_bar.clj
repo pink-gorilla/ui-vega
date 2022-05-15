@@ -15,8 +15,8 @@
               :y {:field "b" :type "quantitative"}}
    :data {:name "table"}})
 
-^:fh
-[:p/vegalite {:spec bar :data data}]
+^:R
+['user/vegalite {:spec bar :data data}]
 
 
 

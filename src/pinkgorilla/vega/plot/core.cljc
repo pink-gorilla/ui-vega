@@ -10,7 +10,7 @@
 #?(:clj
    (defn- wrap [vega-spec]
      (with-meta
-       [:p/vega vega-spec]
+       ['user/vega vega-spec]
        {:R true}))
 
    :cljs

@@ -22,4 +22,4 @@
  [:p "you selected: " (:vega @state)]
  (when-let [spec (get-in @state [:vega :id])]
             ;[:div "spec:" (pr-str (:spec spec))]
-   [:p/vega {:spec spec}])]
+   ['user/vega {:spec spec}])]

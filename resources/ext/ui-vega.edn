@@ -1,8 +1,6 @@
 {:name "ui-vega"
  ; compile-time
  :lazy true
- :theme {:available {}
-         :current {}}
  :cljs-namespace [pinkgorilla.vega ;render wrapper
                   pinkgorilla.vega.plot.core ; plot
                   pinkgorilla.grid ; grid
@@ -18,13 +16,14 @@
                            'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
                           ; 'multi-plot pinkgorilla.vega.plot.core/multi-plot
                            }}
- :pinkie {:p/vega pinkgorilla.vega.impl.react/vega
-          :p/vegalite pinkgorilla.vega.impl.react/vegalite}
-
+ ; theme
+ :theme {:available {}
+         :current {}}
  ;run-time
  :clj-require [[pinkgorilla.vega :refer [vega]]
                [pinkgorilla.vega.plot.core :as plot]
                [pinkgorilla.grid :refer [grid]]]
+ 
 
  ;
  }

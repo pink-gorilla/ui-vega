@@ -7,7 +7,7 @@
    "
   [vega-spec data]
   ^:R
-  [:p/vega vega-spec data])
+  ['user/vega vega-spec data])
 
 (defn ^{:category :data
         :R true}
@@ -16,7 +16,7 @@
    "
   [vega-spec data]
   ^:R
-  [:p/vegalite vega-spec data])
+  ['user/vegalite vega-spec data])
 
 (def vega-themes
   [nil

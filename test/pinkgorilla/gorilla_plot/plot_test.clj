@@ -11,7 +11,7 @@
 
 (deftest list-plot-test
   (let [p (list-plot d)]
-    (is (= :p/vega (first p)))  ; spec test
+    (is (= 'user/vega (first p)))  ; spec test
     (is (= {:R true} (meta p))) ; meta
     ))
 

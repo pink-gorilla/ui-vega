@@ -20,7 +20,7 @@
    :data {:name "table"}})
 
 (show! ^:fh
- [:p/vegalite {:spec bar :data data}])
+ ['user/vegalite {:spec bar :data data}])
 
 (load-notebook "demo.notebook.vegalite-bar")
 

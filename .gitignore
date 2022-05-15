@@ -25,3 +25,4 @@ shadow-cljs.edn
 .webly
 goldly_bindings_generated.cljs
 rdocument/
+.clj-kondo

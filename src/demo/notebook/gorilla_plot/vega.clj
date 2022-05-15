@@ -133,7 +133,7 @@
      [{:start 1933, :end 1945, :mtext "Nazi Rule"}
       {:start 1948, :end 1989, :mtext "GDR (East Germany)"}]}]})
 
-^:R [:p/vega s]
+^:R ['user/vega s]
 
 (def x {:$schema
         "https://vega.github.io/schema/vega-lite/v4.json",
@@ -161,4 +161,4 @@
             :type "quantitative",
             :axis {:tickCount 3, :grid false}}}}]})
 
-^:R [:p/vega x]
+^:R ['user/vega x]

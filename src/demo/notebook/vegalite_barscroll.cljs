@@ -23,11 +23,11 @@
               :y {:field "b" :type "quantitative"}}
    :data {:name "table"}})
 
-^:fh
+^:R
 [:div {:style {:width 400
                :height 500
                :overflow "hidden"
                :background-color "green"}}
- [:p/vegalite {:spec bar :data data}]]
+ ['user/vegalite {:spec bar :data data}]]
 
 

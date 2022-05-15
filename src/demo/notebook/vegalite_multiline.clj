@@ -1,7 +1,7 @@
 (ns demo.notebook.vegalite-multiline)
 
-^:fh
-[:p/vegalite
+^:R
+['user/vegalite
  {:width 1400
   :height 600
   :spec {:description "Stock prices of 5 Tech Companies over Time."
