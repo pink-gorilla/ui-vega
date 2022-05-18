@@ -1,5 +1,5 @@
 
-(ns demo.notebook.gorillaplot.core
+(ns demo.notebook.gorillaplot-core
   (:require
    [pinkgorilla.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
 
@@ -14,7 +14,11 @@
 
 ;;; There are a number of options that can be given to the plot. At the moment your best bet is to peek at the source code to see what they are.
 
-(list-plot d :joined true :plot-size 400 :aspect-ratio 1.6 :opacity 0.5 :plot-range [:all :all])
+(list-plot d :joined true
+           :plot-size 400
+           :aspect-ratio 1.6
+           :opacity 0.5
+           :plot-range [:all :all])
 
 ;;; You can also plot bar charts. The first argument is the list of category names, the second the category values.
 
@@ -26,7 +30,9 @@
 
 ;;; Another key feature of gorilla-plot, is that because plots are values, it's straighforward to compose them. Here's another plot
 
-(def p2 (list-plot d :joined true :plot-range [1 5]))
+(def p2 (list-plot  d
+                    :joined true
+                    :plot-range [1 5]))
 
 ;;; And here we compose them to form a single plot. The axes and plot range are taken from the first plot given to compose.
 

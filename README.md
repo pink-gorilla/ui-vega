@@ -11,9 +11,9 @@ and is a more condensed specification with less features.
 - provides a few functions to quickly generate vega specs, and
   therefore vega plots.
 
-## Demos  (port : 8000)
+## Demos  (port : 8080)
 
-Run `clj -X:goldly` to see ui-vega goldly snippets. Navigate to snippets registry.
+Run `clj -X:docs-run` to see ui-vega goldly snippets. 
 
 
 ## Implementation

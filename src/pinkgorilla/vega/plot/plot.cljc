@@ -13,7 +13,13 @@
         merged-meta (apply merge metas)]
     (with-meta (apply merge data) merged-meta)))
 
-(defn add-indices [d] (map vector (range (count d)) d))
+(defn add-indices [d]
+  (map vector
+       (range (count d))
+       d))
+
+(comment
+  (add-indices [1 2 3]))
 
 (defn list-plot
   "Function for plotting list data."
@@ -25,14 +31,14 @@
            plot-size    400
            aspect-ratio 1.618
            plot-range   [:all :all]
-           symbol-size  70
            opacity      1
            series-name (gen-uuid)
                   ;;symbol       "circle"
-           }}]
+           symbol-size  70} :as spec}]
   (let [plot-data (if (sequential? (first data))
                     data
                     (add-indices data))]
+    ;(println "plot-data:" plot-data "spec: " spec)
     (merge-with-meta
      (container-vega plot-size aspect-ratio)
      (data-from-list series-name plot-data)
@@ -61,7 +67,7 @@
         xs (range xmin xmax (float (/ (- xmax xmin) plot-points)))
         plot-data (map #(vector % (func %)) xs)]
     ;; surely there's a function to do this!
-    (println "data" plot-data)
+    ;(println "data" plot-data)
     (list-plot (merge opts {:data plot-data
                             :joined true}))))
 

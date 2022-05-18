@@ -66,7 +66,7 @@
          :main-opts ["-m" "perf.core"]}
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.519"
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.524"
                                         :exclusions [org.pinkgorilla/ui-vega]}}
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn goldly.app.build/goldly-build
@@ -76,7 +76,7 @@
 
 ; RUN SERVICES (keep running)
   :docs-run
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.524"
                                              :exclusions [org.pinkgorilla/ui-vega]}}
    :extra-paths ["demo"]
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
@@ -88,7 +88,7 @@
 
   ; BUILD BUNDLE (then exit)
   :docs-build
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.519"
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.524"
                                              :exclusions [org.pinkgorilla/ui-vega]}}
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn goldly.app.build/goldly-build

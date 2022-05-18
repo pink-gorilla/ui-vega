@@ -1,5 +1,5 @@
 {:name "ui-vega"
- ; compile-time
+ ; build
  :lazy true
  :cljs-namespace [pinkgorilla.vega ;render wrapper
                   pinkgorilla.vega.plot.core ; plot
@@ -19,7 +19,7 @@
  ; theme
  :theme {:available {}
          :current {}}
- ;run-time
+ ;run
  :clj-require [[pinkgorilla.vega :refer [vega]]
                [pinkgorilla.vega.plot.core :as plot]
                [pinkgorilla.grid :refer [grid]]]
