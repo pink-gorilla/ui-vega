@@ -2,23 +2,19 @@
   "functions in .plot ns will only generate vega-specs.
    In .core ns we wrap the result of all functions into [:vega spec]"
   (:require
-   #?(:cljs [pinkgorilla.vega.impl.react :refer [vega vegalite]])
    [pinkgorilla.vega.plot.plot :as p]
    ;[pinkgorilla.vega.plot.multi :as m]
    ))
 
 ;; wrap and unwrap
 
-#?(:clj
-   (defn- wrap [vega-spec]
-     (with-meta
-       ['user/vega
-        vega-spec]
-       {:R true}))
 
-   :cljs
-   (defn- wrap [vega-spec]
-     [user/vega vega-spec]))
+(defn- wrap [vega-spec]
+  (with-meta
+    ['user/vega
+     vega-spec]
+    {:R true}))
+
 
 (defn -unwrap [renderable]
   (second renderable))

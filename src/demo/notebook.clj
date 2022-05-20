@@ -1,8 +1,7 @@
 (ns demo.notebook
   (:require
    [reval.document.notebook :refer [eval-notebook load-notebook create-notebook]]
-   [goldly.scratchpad :refer [show! show-as clear!]]
-   [goldly.scratchpad :refer [show! clear!]]))
+   [goldly.scratchpad :refer [show! show-as clear!]]))
 
 (def data
   {:table [{:a "A" :b 28} {:a "B" :b 55} {:a "C" :b 43} {:a "D" :b 91}
@@ -19,7 +18,7 @@
               :y {:field "b" :type "quantitative"}}
    :data {:name "table"}})
 
-(show! ^:fh
+(show! ^:R
  ['user/vegalite {:spec bar :data data}])
 
 (load-notebook "demo.notebook.vegalite-bar")
