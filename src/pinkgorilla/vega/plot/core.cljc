@@ -8,13 +8,11 @@
 
 ;; wrap and unwrap
 
-
 (defn- wrap [vega-spec]
   (with-meta
     ['user/vega
      vega-spec]
     {:R true}))
-
 
 (defn -unwrap [renderable]
   (second renderable))
