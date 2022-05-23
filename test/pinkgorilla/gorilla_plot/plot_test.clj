@@ -4,14 +4,14 @@
    ;   :clj  
    [clojure.test :refer [deftest is]]
    ;)
-   [pinkgorilla.vega.plot.core :refer [list-plot]]))
+   [ui.vega.plot.core :refer [list-plot]]))
 
 (def d
   [1 3 5 7 9 5 4 6 9 8 3 5 6])
 
 (deftest list-plot-test
   (let [p (list-plot d)]
-    (is (= 'user/vega (first p)))  ; spec test
+    (is (= 'ui.vega/vega (first p)))  ; spec test
     (is (= {:R true} (meta p))) ; meta
     ))
 
