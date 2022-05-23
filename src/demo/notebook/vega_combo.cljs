@@ -1,4 +1,8 @@
-(ns demo.notebook.vega-combo)
+(ns demo.notebook.vega-combo
+  (:require
+   [reagent.core :as r]
+   [ui.vega :refer [vega]]
+   [input :refer [select]]))
 
 (def demo-charts
   [{:label "bar-chart"
@@ -14,12 +18,18 @@
    {:label "box plot" :id "/r/vega/box-plot.vg.json"}
    {:label "contour" :id "/r/vega/contour-plot.vg.json"}])
 
-[:div
- [:h1 "select the sample vega plot you want to see"]
- [:p/select {:nav? false
-             :items demo-charts
-             :display :label} state [:vega]]
- [:p "you selected: " (:vega @state)]
- (when-let [spec (get-in @state [:vega :id])]
+(defonce state (r/atom {:vega {:label "box plot" :id "/r/vega/box-plot.vg.json"}}))
+
+(defn vega-shower []
+  [:div
+   [:h1 "select the sample vega plot you want to see"]
+   [select {:nav? false
+            :items demo-charts
+            :display :label} state [:vega]]
+   [:p "you selected: " (:vega @state)]
+   (when-let [spec (get-in @state [:vega :id])]
             ;[:div "spec:" (pr-str (:spec spec))]
-   ['user/vega {:spec spec}])]
+     [vega {:spec spec}])])
+
+^:R
+[vega-shower]

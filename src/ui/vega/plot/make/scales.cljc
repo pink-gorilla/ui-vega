@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega.plot.make.scales)
+(ns ui.vega.plot.make.scales)
 
 (defn- domain-helper
   [data-key axis-plot-range axis]

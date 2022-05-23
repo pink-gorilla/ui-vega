@@ -1,7 +1,7 @@
 (ns demo.notebook.vegalite-arrow)
 
 ^:R
-['user/vegalite
+['ui.vega/vegalite
  {:width 800
   :height 600
   :spec {:data {:url "/r/data/chicago-crimes-2018.arrow"

@@ -1,16 +1,16 @@
-(ns pinkgorilla.vega.plot.core
+(ns ui.vega.plot.core
   "functions in .plot ns will only generate vega-specs.
    In .core ns we wrap the result of all functions into [:vega spec]"
   (:require
-   [pinkgorilla.vega.plot.plot :as p]
-   ;[pinkgorilla.vega.plot.multi :as m]
+   [ui.vega.plot.plot :as p]
+   ;[ui.vega.plot.multi :as m]
    ))
 
 ;; wrap and unwrap
 
 (defn- wrap [vega-spec]
   (with-meta
-    ['user/vega
+    ['ui.vega/vega
      vega-spec]
     {:R true}))
 

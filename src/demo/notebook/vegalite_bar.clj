@@ -16,7 +16,7 @@
    :data {:name "table"}})
 
 ^:R
-['user/vegalite {:spec bar :data data}]
+['ui.vega/vegalite {:spec bar :data data}]
 
 
 

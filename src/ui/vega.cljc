@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega)
+(ns ui.vega)
 
 (defn ^{:category :data
         :R true}
@@ -7,7 +7,7 @@
    "
   [vega-spec data]
   ^:R
-  ['user/vega vega-spec data])
+  ['ui.vega/vega vega-spec data])
 
 (defn ^{:category :data
         :R true}
@@ -16,7 +16,7 @@
    "
   [vega-spec data]
   ^:R
-  ['user/vegalite vega-spec data])
+  ['ui.vega/vegalite vega-spec data])
 
 (def vega-themes
   [nil

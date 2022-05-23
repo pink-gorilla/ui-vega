@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega.plot.latex
+(ns ui.vega.plot.latex
   (:require
    [clojure.string :as str]))
 

@@ -1,7 +1,7 @@
 (ns demo.notebook.vega-zoom)
 
 ^:R
-['user/vega
+['ui.vega/vega
  {:spec {:description
          "An interactive scatter plot example supporting pan and zoom."
          :autosize "none"

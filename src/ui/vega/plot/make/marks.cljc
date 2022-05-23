@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega.plot.make.marks)
+(ns ui.vega.plot.make.marks)
 
 (defn list-plot-marks
   [data-key color #_shape size opacity]

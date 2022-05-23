@@ -6,7 +6,7 @@
   ;[clj-time "0.15.2"] ;time axis creation 
   ;[com.andrewmcveigh/cljs-time "0.5.2"]
   ; todo: replace with cljc time
-  org.pinkgorilla/pinkie {:mvn/version "0.3.11"}} ; box
+  org.pinkgorilla/pinkie {:mvn/version "0.3.15"}} ; box
 
  :aliases
  {;https://github.com/applied-science/deps-library
@@ -66,7 +66,7 @@
          :main-opts ["-m" "perf.core"]}
 
   :goldly
-  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.524"
+  {:extra-deps {org.pinkgorilla/goldly {:mvn/version "0.4.545"
                                         :exclusions [org.pinkgorilla/ui-vega]}}
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
    :exec-fn goldly.app.build/goldly-build
@@ -75,8 +75,8 @@
 
 
 ; RUN SERVICES (keep running)
-  :docs-run
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.524"
+  :docs
+  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.545"
                                              :exclusions [org.pinkgorilla/ui-vega]}}
    :extra-paths ["demo"]
    :jvm-opts ["-Dmaven.wagon.rto=90000"]
@@ -87,15 +87,9 @@
                :services "goldly/docs-services.edn"}}
 
   ; BUILD BUNDLE (then exit)
-  :docs-build
-  {:extra-deps {org.pinkgorilla/goldly-docs {:mvn/version "0.4.524"
-                                             :exclusions [org.pinkgorilla/ui-vega]}}
-   :jvm-opts ["-Dmaven.wagon.rto=90000"]
-   :exec-fn goldly.app.build/goldly-build
-   :exclusions [org.pinkgorilla/ui-vega]
-   :exec-args {:profile "compile2"
-               :config ["webly/config.edn" "goldly/config.edn" "goldly/docs-config.edn"
-                        "goldly-plot.edn"]}}
+  :build
+  {:exec-fn goldly.app.build/goldly-build
+   :exec-args {:profile "compile2"}}
 
 
 

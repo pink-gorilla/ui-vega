@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega.plot.make.axes)
+(ns ui.vega.plot.make.axes)
 
 (defn default-plot-axes
   [x-title y-title]

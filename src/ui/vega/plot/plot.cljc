@@ -1,10 +1,10 @@
-(ns pinkgorilla.vega.plot.plot
+(ns ui.vega.plot.plot
   (:require
-   [pinkgorilla.vega.plot.make.container :refer [container-vega data-from-list]]
-   [pinkgorilla.vega.plot.make.marks :as marks]
-   [pinkgorilla.vega.plot.make.axes :as axes]
-   [pinkgorilla.vega.plot.make.scales :as scales]
-   [pinkgorilla.vega.plot.util :as util :refer [gen-uuid]]))
+   [ui.vega.plot.make.container :refer [container-vega data-from-list]]
+   [ui.vega.plot.make.marks :as marks]
+   [ui.vega.plot.make.axes :as axes]
+   [ui.vega.plot.make.scales :as scales]
+   [ui.vega.plot.util :as util :refer [gen-uuid]]))
 
 ;; Series' are given random names so that plots can be composed
 ;; Thanks: https://gist.github.com/gorsuch/1418850

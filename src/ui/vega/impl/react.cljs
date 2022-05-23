@@ -1,4 +1,4 @@
-(ns pinkgorilla.vega.impl.react
+(ns ui.vega.impl.react
   (:require
    [reagent.core :as r]
    ["react-vega" :refer [#_VegaLite Vega]]
@@ -13,7 +13,7 @@
    ["./vega-loader-arrow.js" :as arrow]
 
    [pinkie.box :refer [apply-style]]
-   [pinkgorilla.vega :refer [vega-opts]]))
+   [ui.vega :refer [vega-opts]]))
 
 ;(println "fb: " fb)
 

@@ -1,4 +1,6 @@
-(ns demo.notebook.vegalite-barscroll)
+(ns demo.notebook.vegalite-barscroll
+  (:require
+   [ui.vega :refer [vegalite]]))
 
 (def data
   {:table [{:a "A" :b 28} {:a "B" :b 55} {:a "C" :b 43} {:a "D" :b 91}
@@ -28,6 +30,6 @@
                :height 500
                :overflow "hidden"
                :background-color "green"}}
- ['user/vegalite {:spec bar :data data}]]
+ [vegalite {:spec bar :data data}]]
 
 

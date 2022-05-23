@@ -1,7 +1,7 @@
 (ns demo.notebook.vega-rect)
 
 ^:R
-['user/vega
+['ui.vega/vega
  {:spec {:$schema "https://vega.github.io/schema/vega/v5.json"
          :padding {:left 5, :right 5, :top 5, :bottom 5}
          :data [{:name "table"}]

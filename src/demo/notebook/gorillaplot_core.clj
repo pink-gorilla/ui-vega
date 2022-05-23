@@ -1,7 +1,7 @@
 
 (ns demo.notebook.gorillaplot-core
   (:require
-   [pinkgorilla.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
+   [ui.vega.plot.core :refer [list-plot bar-chart compose histogram plot]]))
 
 (def d
   [1 3 5 7 9 5 4 6 9 8 3 5 6])

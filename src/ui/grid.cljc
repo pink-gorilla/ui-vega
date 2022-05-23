@@ -1,4 +1,4 @@
-(ns pinkgorilla.grid
+(ns ui.grid
   (:require
    [clojure.string :as str]))
 

@@ -1,3 +1,12 @@
+(ns plot-demo.page.listplot
+  (:require
+    [goldly.page :as page]
+    [ui.vega.plot :as plot]
+   
+   )
+  
+  )
+
 (def d [1 3 5 7 9 5 4 6 9 8 3 5 6])
 
 (def hdata
@@ -35,7 +44,7 @@
                     :aspect-ratio 1.6
                     :plot-range [:all :all]
                     :opacity 0.5}]
-   [plot/plot {:func sin
+   [plot/plot {:func js/Math.sin
                :window [0 100]}]
    [plot/bar-chart {:categories (range (count d))
                     :values d}]
@@ -50,7 +59,8 @@
                      :opacity 0.5}))
     ;)
    ])
-(add-page histogram-page :vegademo/histogram)
+
+(page/add histogram-page :vegademo)
 
 #_[:p/composeplot
    [:p/listplot d]

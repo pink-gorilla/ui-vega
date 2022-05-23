@@ -13,7 +13,15 @@ and is a more condensed specification with less features.
 
 ## Demos  (port : 8080)
 
-Run `clj -X:docs-run` to see ui-vega goldly snippets. 
+Run `clj -X:docs` to see ui-vega goldly snippets. 
+
+## development
+
+clj -X:docs:build :profile "npm-install"
+clj -X:docs:build :profile "npm-compile2"
+clj -X:docs
+
+
 
 
 ## Implementation

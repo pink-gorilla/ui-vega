@@ -1,29 +1,29 @@
 {:name "ui-vega"
  ; build
  :lazy true
- :cljs-namespace [pinkgorilla.vega ;render wrapper
-                  pinkgorilla.vega.plot.core ; plot
-                  pinkgorilla.grid ; grid
-                  pinkgorilla.vega.impl.react]
- :cljs-bindings {'vega pinkgorilla.vega.impl.react/vega
-                 'vegalite pinkgorilla.vega.impl.react/vegalite
-                 'grid pinkgorilla.grid/grid}
- :cljs-ns-bindings {'plot {'list-plot pinkgorilla.vega.plot.core/list-plot
-                           'bar-chart pinkgorilla.vega.plot.core/bar-chart
-                           'histogram pinkgorilla.vega.plot.core/histogram
-                           'plot pinkgorilla.vega.plot.core/plot
-                           'compose pinkgorilla.vega.plot.core/compose
-                           'timeseries-plot pinkgorilla.vega.plot.core/timeseries-plot
-                          ; 'multi-plot pinkgorilla.vega.plot.core/multi-plot
-                           }}
+ :cljs-namespace [ui.vega ;render wrapper
+                  ui.vega.plot.core ; plot
+                  ui.grid ; grid
+                  ui.vega.impl.react]
+ :cljs-ns-bindings {'ui.vega {'vega ui.vega.impl.react/vega
+                              'vegalite ui.vega.impl.react/vegalite
+                              'grid ui.grid/grid}
+                    'ui.vega.plot {'list-plot ui.vega.plot.core/list-plot
+                                   'bar-chart ui.vega.plot.core/bar-chart
+                                   'histogram ui.vega.plot.core/histogram
+                                   'plot ui.vega.plot.core/plot
+                                   'compose ui.vega.plot.core/compose
+                                   'timeseries-plot ui.vega.plot.core/timeseries-plot
+                          ; 'multi-plot ui.vega.plot.core/multi-plot
+                                   }}
  ; theme
  :theme {:available {}
          :current {}}
  ;run
- :clj-require [[pinkgorilla.vega :refer [vega]]
-               [pinkgorilla.vega.plot.core :as plot]
-               [pinkgorilla.grid :refer [grid]]]
- 
+ :clj-require [[ui.vega :refer [vega]]
+               [ui.vega.plot.core :as plot]
+               [ui.grid :refer [grid]]]
+
 
  ;
  }
