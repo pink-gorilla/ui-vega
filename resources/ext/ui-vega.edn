@@ -1,6 +1,6 @@
 {:name "ui-vega"
  ; build
- :lazy true
+ :lazy-sci true
  :cljs-namespace [ui.vega ;render wrapper
                   ui.vega.plot.core ; plot
                   ui.grid ; grid
