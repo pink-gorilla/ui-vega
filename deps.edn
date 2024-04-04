@@ -6,7 +6,7 @@
   ;[clj-time "0.15.2"] ;time axis creation 
   ;[com.andrewmcveigh/cljs-time "0.5.2"]
   ; todo: replace with cljc time
-  org.pinkgorilla/pinkie {:mvn/version "0.3.15"}} ; box
+  org.pinkgorilla/pinkie {:mvn/version "0.5.231"}} ; box
 
  :aliases
  {;https://github.com/applied-science/deps-library

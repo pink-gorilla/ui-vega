@@ -12,7 +12,7 @@
    ;["flatbuffers" :as fb]
    ["./vega-loader-arrow.js" :as arrow]
 
-   [pinkie.box :refer [apply-style]]
+   [pinkie.ui.core :refer [apply-box-style]]
    [ui.vega :refer [vega-opts]]))
 
 ;(println "fb: " fb)

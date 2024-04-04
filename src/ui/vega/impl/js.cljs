@@ -1,7 +1,7 @@
 (ns ui.vega.impl.js
   "plugin to render vega-charts in pink-gorilla"
   (:require
-   [pinkie.jsrender :refer [render-js]]
+   [pinkie.ui.core :refer [render-js]]
    ["vega-embed" :as vega-embed]))
 
 ;; NOTES:
