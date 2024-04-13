@@ -1,8 +1,6 @@
 (ns ui.vega
-  (:require 
-    [ui.vega.impl.react :as v]))
-
-
+  (:require
+   [ui.vega.impl.react :as v]))
 
 (def vega ui.vega.impl.react/vega)
 
