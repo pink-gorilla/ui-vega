@@ -1,7 +1,6 @@
 (ns ui.vega)
 
-(defn ^{:category :data
-        :R true}
+(defn ^{:R true}
   vega
   "displays chart defined in vega spec
    "
@@ -9,8 +8,7 @@
   ^:R
   ['ui.vega/vega vega-spec data])
 
-(defn ^{:category :data
-        :R true}
+(defn ^{:R true}
   vegalite
   "displays chart defined in vega spec
    "

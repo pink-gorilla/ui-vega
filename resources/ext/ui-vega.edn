@@ -1,29 +1,23 @@
 {:name "ui-vega"
  ; build
- :lazy-sci true
- :cljs-namespace [ui.vega ;render wrapper
-                  ui.vega.plot.core ; plot
-                  ui.grid ; grid
-                  ui.vega.impl.react]
- :cljs-ns-bindings {'ui.vega {'vega ui.vega.impl.react/vega
-                              'vegalite ui.vega.impl.react/vegalite
-                              'grid ui.grid/grid}
-                    'ui.vega.plot {'list-plot ui.vega.plot.core/list-plot
-                                   'bar-chart ui.vega.plot.core/bar-chart
-                                   'histogram ui.vega.plot.core/histogram
-                                   'plot ui.vega.plot.core/plot
-                                   'compose ui.vega.plot.core/compose
-                                   'timeseries-plot ui.vega.plot.core/timeseries-plot
+ :lazy true
+ :cljs-namespace [ui.vega 
+                  ui.vega.plot.core 
+                  ui.grid]
+ :cljs-ns-bindings {'ui.vega {'vega ui.vega/vega
+                              'vegalite ui.vega/vegalite}
+                    'ui.vega.plot.core {'list-plot ui.vega.plot.core/list-plot
+                                        'bar-chart ui.vega.plot.core/bar-chart
+                                        'histogram ui.vega.plot.core/histogram
+                                        'plot ui.vega.plot.core/plot
+                                        'compose ui.vega.plot.core/compose
+                                        'timeseries-plot ui.vega.plot.core/timeseries-plot
                           ; 'multi-plot ui.vega.plot.core/multi-plot
-                                   }}
+                                        }
+                    'ui.grid {'grid ui.grid/grid}
+                    }
  ; theme
  :theme {:available {}
          :current {}}
- ;run
- :clj-require [[ui.vega :refer [vega]]
-               [ui.vega.plot.core :as plot]
-               [ui.grid :refer [grid]]]
-
-
- ;
+;
  }

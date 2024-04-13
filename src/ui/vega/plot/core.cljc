@@ -51,7 +51,7 @@
 
 ;(def multi-plot (wrap-vega m/multi-plot))
 
-(defn ^{:category :data} compose
+(defn compose
   [& plots]
   (let [plots-unwrapped (into [] (map -unwrap plots))]
     (wrap (apply p/compose plots-unwrapped))))
