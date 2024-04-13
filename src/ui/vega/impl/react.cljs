@@ -13,7 +13,7 @@
    ["./vega-loader-arrow.js" :as arrow]
 
    [pinkie.ui.core :refer [apply-box-style]]
-   [ui.vega :refer [vega-opts]]))
+   [ui.vega.opts :refer [vega-opts]]))
 
 ;(println "fb: " fb)
 

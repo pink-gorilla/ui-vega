@@ -38,12 +38,6 @@ jobs:
       run: |
         clojure -X:goldly :profile '"npm-install"'
         ./scripts/copy_res.sh 
-    #- name: show git tag
-    #  run: clojure -M:garamond
-    #- name: clj-kondo
-    #  run: clojure -M:lint
-    #- name: cloverage
-    #  run: clojure -M:cloverage
     - name: Release
       if: success()
       # if: github.event_name == 'push'
