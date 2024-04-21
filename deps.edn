@@ -3,10 +3,7 @@
          "target/node_modules"] ; vega specs json
  :deps
  {org.clojure/clojure    {:mvn/version "1.10.3"}
-  ;[clj-time "0.15.2"] ;time axis creation 
-  ;[com.andrewmcveigh/cljs-time "0.5.2"]
-  ; todo: replace with cljc time
-  org.pinkgorilla/pinkie {:mvn/version "0.5.231"}} ; box
+  org.pinkgorilla/pinkie {:mvn/version "0.5.232"}} ; box
 
  :aliases
  {; github ci

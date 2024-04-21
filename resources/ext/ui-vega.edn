@@ -11,11 +11,9 @@
                                         'histogram ui.vega.plot.core/histogram
                                         'plot ui.vega.plot.core/plot
                                         'compose ui.vega.plot.core/compose
-                                        'timeseries-plot ui.vega.plot.core/timeseries-plot
-                          ; 'multi-plot ui.vega.plot.core/multi-plot
-                                        }
-                    'ui.grid {'grid ui.grid/grid}
-                    }
+                                        ; 'multi-plot ui.vega.plot.core/multi-plot
+                                        'timeseries-plot ui.vega.plot.core/timeseries-plot}
+                    'ui.grid {'grid ui.grid/grid}}
  ; theme
  :theme {:available {}
          :current {}}
