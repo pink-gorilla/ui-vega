@@ -11,8 +11,6 @@
    ;["vega-loader-arrow" :as arrow]
    ;["flatbuffers" :as fb]
    ["./vega-loader-arrow.js" :as arrow]
-
-   [pinkie.ui.core :refer [apply-box-style]]
    [ui.vega.opts :refer [vega-opts]]))
 
 ;(println "fb: " fb)
@@ -60,8 +58,7 @@
         spec (:spec opts)
         user-opts (select-keys spec [:width :height :overflow])
         spec (if (map? spec) ; spec could be a map or astring (url)
-               (-> (apply-box-style spec) ; box inject
-                   (assoc :usermeta {:embedOptions (merge vega-opts user-opts)}))
+               (assoc spec :usermeta {:embedOptions (merge vega-opts user-opts)})
                spec)]
     [:> Vega (merge opts
                     {; All signals defined in the spec can be listened to via signalListeners

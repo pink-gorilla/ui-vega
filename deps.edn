@@ -3,7 +3,7 @@
          "target/node_modules"] ; vega specs json
  :deps
  {org.clojure/clojure    {:mvn/version "1.10.3"}
-  org.pinkgorilla/pinkie {:mvn/version "0.5.232"}} ; box
+  org.pinkgorilla/pinkie {:mvn/version "0.5.232"}} ; for js-render
 
  :aliases
  {; github ci
